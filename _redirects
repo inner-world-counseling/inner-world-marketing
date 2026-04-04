@@ -1,0 +1,15 @@
+# Netlify redirects
+/privacy.html  /privacy/  301
+/terms.html    /terms/    301
+/who-i-help  /services  301
+
+# State landing page aliases (old slugs -> new slugs)
+/north-dakota-therapy  /north-dakota-telehealth-therapy  301
+/minnesota-therapy  /minnesota-telehealth-therapy  301
+/ohio-therapy  /ohio-telehealth-therapy  301
+/utah-therapy  /utah-telehealth-therapy  301
+/nd-therapy  /north-dakota-telehealth-therapy  301
+/mn-therapy  /minnesota-telehealth-therapy  301
+/oh-therapy  /ohio-telehealth-therapy  301
+/ut-therapy  /utah-telehealth-therapy  301
+/cognitive-behavioral-therapy /cognitive-processing-therapy 301
