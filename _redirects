@@ -1,4 +1,5 @@
-# Netlify redirects
+# Explicitly handle privacy and terms to prevent routing loops
+
 /privacy.html  /privacy/  301
 /terms.html    /terms/    301
 /who-i-help  /services  301
