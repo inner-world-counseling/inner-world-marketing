@@ -8,5 +8,25 @@
 </head>
 <body>
 <p>This page has moved. <a href="https://deirdrekuvaas.com/terms/">Click here</a> if you are not redirected automatically.</p>
+<div id="pt-verified-seal"></div>
+<script>
+(function() {
+  var loaded = false;
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting && !loaded) {
+      loaded = true;
+      var s = document.createElement('script');
+      s.setAttribute('data-badge', '13');
+      s.setAttribute('data-code', 'aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy8xMy9wcm9maWxlLzEwNzM3MzU/Y2FsbGJhY2s9c3hjYWxsYmFjaw==');
+      s.setAttribute('data-id', '1073735');
+      s.src = 'https://member.psychologytoday.com/verified-seal.js';
+      document.body.appendChild(s);
+      observer.disconnect();
+    }
+  }, { rootMargin: '200px' });
+  var footer = document.querySelector('.site-footer');
+  if (footer) observer.observe(footer);
+})();
+</script>
 </body>
 </html>
