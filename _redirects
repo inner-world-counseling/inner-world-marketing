@@ -2,6 +2,8 @@
 
 /privacy.html  /privacy/  301
 /terms.html    /terms/    301
+/privacy  /privacy/  301
+/terms    /terms/    301
 /who-i-help  /services  301
 
 # State landing page aliases (old slugs -> new slugs)
