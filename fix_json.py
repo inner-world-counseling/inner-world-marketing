@@ -44,7 +44,7 @@ def process_file(filepath):
         # Replace sameAs inside this person block
         new_same_as = '''"sameAs": [
         "https://npiregistry.cms.hhs.gov/provider-view/1881112399",
-        "https://www.psychologytoday.com/us/therapists/deirdre-kuvaas-horace-nd/1073735",
+        "https://www.psychologytoday.com/us/therapists/deirdre-kuvaas-fargo-nd/1073735",
         "https://www.linkedin.com/in/deirdre-kuvaas",
         "https://www.emdria.org/directory/people/deirdre-kuvaas/",
         "https://www.goodtherapy.org/therapists/profile/deirdre-kuvaas-20260425-counselor"

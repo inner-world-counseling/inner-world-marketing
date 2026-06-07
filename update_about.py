@@ -95,7 +95,7 @@ old_person_schema = '''    {
       ],
       "sameAs": [
         "https://npiregistry.cms.hhs.gov/provider-view/1881112399",
-        "https://www.psychologytoday.com/us/therapists/deirdre-kuvaas-horace-nd/1073735"
+        "https://www.psychologytoday.com/us/therapists/deirdre-kuvaas-fargo-nd/1073735"
       ]
     }'''
 new_person_schema = '''    {
@@ -131,7 +131,7 @@ new_person_schema = '''    {
       ],
       "sameAs": [
         "https://npiregistry.cms.hhs.gov/provider-view/1881112399",
-        "https://www.psychologytoday.com/us/therapists/deirdre-kuvaas-horace-nd/1073735",
+        "https://www.psychologytoday.com/us/therapists/deirdre-kuvaas-fargo-nd/1073735",
         "https://www.linkedin.com/in/deirdre-kuvaas"
       ]
     }'''
