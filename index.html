@@ -67,12 +67,19 @@
 <!-- Structured Data: Services -->
 <link as="image" fetchpriority="high" href="/images/hero-banner-leaves.webp" rel="preload"/>
 <!-- Google Analytics -->
-<script defer="" src="https://www.googletagmanager.com/gtag/js?id=G-KR0PGMD050"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-KR0PGMD050');
+    (function () {
+      if (!/(^|\.)deirdrekuvaas\.com$/.test(location.hostname)) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-KR0PGMD050';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-KR0PGMD050');
+    })();
   </script>
 <style>
   .main-nav__link, .main-nav__link--active, h3 { color: #2D3436 !important; }
@@ -854,7 +861,13 @@ Evidence-based trauma therapy using EMDR and Cognitive Processing Therapy (CPT),
 })();
 </script>
 <!-- Metricool -->
-<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript";c.defer=true;c.src="https://tracker.metricool.com/resources/be.js";c.onreadystatechange=a;c.onload=a;b.appendChild(c)}loadScript(function(){beTracker.t({hash:"6ddc3776303051ef1352602b882d89"})});</script>
+<!-- Metricool -->
+  <script>
+    (function () {
+      if (!/(^|\.)deirdrekuvaas\.com$/.test(location.hostname)) return;
+      function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript";c.defer=true;c.src="https://tracker.metricool.com/resources/be.js";c.onreadystatechange=a;c.onload=a;b.appendChild(c)}loadScript(function(){beTracker.t({hash:"6ddc3776303051ef1352602b882d89"})});
+    })();
+  </script>
 <style>
   .checklist__label.is-checked .checklist__text,
   .checklist__input:checked ~ .checklist__text {
