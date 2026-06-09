@@ -279,32 +279,43 @@
     <section class="section">
       <div class="container">
         <div class="blog-grid" id="blog-grid">
-  <!-- Posts rendered by JavaScript from /blog/posts.json -->
-</div>
-
-<script>
-fetch('/blog/posts.json')
-  .then(function(r){ return r.json(); })
-  .then(function(posts){
-    var grid = document.getElementById('blog-grid');
-    var html = '';
-    posts.forEach(function(post){
-      html += '<article class="blog-card">';
-      html += '<div class="blog-card__content">';
-      html += '<p class="blog-card__category" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#666;margin-bottom:0.25rem;">' + post.category + '</p>';
-      html += '<h3><a href="/' + post.slug + '/">' + post.title + '</a></h3>';
-      html += '<p class="blog-card__meta">By ' + post.author + ' &middot; ' + post.dateDisplay + ' &middot; ' + post.readTime + '</p>';
-      html += '<p>' + post.description + '</p>';
-      html += '<a href="/' + post.slug + '/" class="blog-card__read-more">Read More &rarr;</a>';
-      html += '</div>';
-      html += '</article>';
-    });
-    grid.innerHTML = html;
-  })
-  .catch(function(){
-    document.getElementById('blog-grid').innerHTML = '<p>Unable to load posts. Please try again.</p>';
-  });
-</script>
+          <article class="blog-card">
+            <div class="blog-card__content">
+              <p class="blog-card__category" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#666;margin-bottom:0.25rem;">Nervous System</p>
+              <h3><a href="/nervous-system-regulation-for-high-achievers/">Nervous System Regulation for High Achievers: Your Window of Tolerance</a></h3>
+              <p class="blog-card__meta">By Deirdre Kuvaas, LPCC &middot; May 4, 2026 &middot; 4 min read</p>
+              <p>High achievers often operate at the ceiling of their Window of Tolerance. Learn the science of nervous system regulation — and 3 bio-hacks to reset your state in real time.</p>
+              <a href="/nervous-system-regulation-for-high-achievers/" class="blog-card__read-more">Read More &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__content">
+              <p class="blog-card__category" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#666;margin-bottom:0.25rem;">People-Pleasing</p>
+              <h3><a href="/im-an-empath-and-other-lies-we-tell-ourselves-to-avoid-boundaries/">“I’m an Empath” (and Other Lies We Tell Ourselves to Avoid Boundaries)</a></h3>
+              <p class="blog-card__meta">By Deirdre Kuvaas, LPCC &middot; March 1, 2026 &middot; 5 min read</p>
+              <p>Fawning is the trauma response nobody talks about because society rewards it. Discover how EMDR and CPT can help you stop reading the room and start living in it.</p>
+              <a href="/im-an-empath-and-other-lies-we-tell-ourselves-to-avoid-boundaries/" class="blog-card__read-more">Read More &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__content">
+              <p class="blog-card__category" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#666;margin-bottom:0.25rem;">Trauma</p>
+              <h3><a href="/the-big-myth-do-i-have-to-talk-about-trauma-to-heal-it/">The Big Myth: Do I Have to Talk About Trauma to Heal It?</a></h3>
+              <p class="blog-card__meta">By Deirdre Kuvaas, LPCC &middot; November 7, 2025 &middot; 4 min read</p>
+              <p>You don't have to relive it to release it. Learn why evidence-based trauma therapy focuses on healing foundational beliefs rather than recounting specific details.</p>
+              <a href="/the-big-myth-do-i-have-to-talk-about-trauma-to-heal-it/" class="blog-card__read-more">Read More &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__content">
+              <p class="blog-card__category" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#666;margin-bottom:0.25rem;">People-Pleasing</p>
+              <h3><a href="/your-people-pleasing-side-hustle-is-actually-traumas-full-time-job/">Your People-Pleasing Side Hustle is Actually Trauma’s Full-Time Job</a></h3>
+              <p class="blog-card__meta">By Deirdre Kuvaas, LPCC &middot; March 10, 2025 &middot; 6 min read</p>
+              <p>Chronic people-pleasing often shows up as physical pain, IBS, or constant anxiety. This isn't a personality trait — it's a learned trauma response you can break.</p>
+              <a href="/your-people-pleasing-side-hustle-is-actually-traumas-full-time-job/" class="blog-card__read-more">Read More &rarr;</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
