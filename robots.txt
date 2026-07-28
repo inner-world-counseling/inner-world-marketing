@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /admin/
+Disallow: /docs/
 Allow: /
 
 Sitemap: https://deirdrekuvaas.com/sitemap.xml

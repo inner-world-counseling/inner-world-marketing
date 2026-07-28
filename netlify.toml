@@ -1,5 +1,12 @@
-[[redirects]]
-  from = "/*"
-  to = "/:splat/"
-  status = 301
-  force = false
+# No catch-all trailing-slash redirect here — on purpose.
+#
+# A `from = "/*"` -> `to = "/:splat/"` rule cannot work on Netlify and loops:
+# the CDN normalizes trailing slashes BEFORE redirect rules are evaluated, so
+# "/about" and "/about/" match the same rule, and the rule's own output
+# re-matches it forever. Netlify's docs state this directly: "You cannot use a
+# redirect rule to add or remove a trailing slash."
+#
+# Trailing slashes are added by Netlify's Pretty URLs feature, which is enabled
+# by default and forwards "/about" to "/about/" without any rule.
+#
+# Project configuration > Build & deploy > Post processing > Pretty URLs

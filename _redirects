@@ -1,18 +1,20 @@
-# Explicitly handle privacy and terms to prevent routing loops
+# Every target below is a FINAL URL (trailing slash included) so each request
+# resolves in a single hop. Trailing slashes are supplied by Netlify's Pretty
+# URLs feature, not by a redirect rule — see netlify.toml.
 
 /privacy.html  /privacy/  301
 /terms.html    /terms/    301
 /privacy  /privacy/  301
 /terms    /terms/    301
-/who-i-help  /services  301
+/who-i-help  /services/  301
 
 # State landing page aliases (old slugs -> new slugs)
-/north-dakota-therapy  /north-dakota-telehealth-therapy  301
-/minnesota-therapy  /minnesota-telehealth-therapy  301
-/ohio-therapy  /ohio-telehealth-therapy  301
-/utah-therapy  /utah-telehealth-therapy  301
-/nd-therapy  /north-dakota-telehealth-therapy  301
-/mn-therapy  /minnesota-telehealth-therapy  301
-/oh-therapy  /ohio-telehealth-therapy  301
-/ut-therapy  /utah-telehealth-therapy  301
-/cognitive-behavioral-therapy /cognitive-processing-therapy 301
+/north-dakota-therapy  /north-dakota-telehealth-therapy/  301
+/minnesota-therapy  /minnesota-telehealth-therapy/  301
+/ohio-therapy  /ohio-telehealth-therapy/  301
+/utah-therapy  /utah-telehealth-therapy/  301
+/nd-therapy  /north-dakota-telehealth-therapy/  301
+/mn-therapy  /minnesota-telehealth-therapy/  301
+/oh-therapy  /ohio-telehealth-therapy/  301
+/ut-therapy  /utah-telehealth-therapy/  301
+/cognitive-behavioral-therapy /cognitive-processing-therapy/ 301
