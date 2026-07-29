@@ -207,7 +207,7 @@ The catch-all trailing-slash redirect rule was deliberately removed because Netl
 
 ## 6. KNOWN OPEN ITEMS
 
-- [ ] Publish directory is the repo root; every committed file is public. Partially mitigated: `_redirects` now returns a forced 404 for `/CLAUDE.md` and `/docs/*`. `README.md` is still served and any future non-content file added to the root will be public unless a rule is added for it.
+- [ ] Publish directory is the repo root; every committed file is public. Partially mitigated: `_redirects` now returns a forced 404 for `/CLAUDE.md`, `/README.md`, and `/docs/*`. Any future non-content file added to the root will be public unless a rule is added for it.
 - [ ] Header/footer duplicated across 29 pages, with known drift between copies
 - [x] Schema: "telecom" used instead of "telephone" — resolved. Renamed across 24 pages; the 4 state landing pages carried a redundant `telecom` block alongside an already-correct `telephone` string and had that block deleted outright. Zero occurrences remain repo-wide.
 - [x] Schema: `telephone` held a `ContactPoint` object where schema.org expects Text — resolved. Flattened to a bare string on all 28 `MedicalBusiness` nodes; the `ContactPoint` wrapper and `contactType` were dropped as they add nothing for a solo practitioner.
