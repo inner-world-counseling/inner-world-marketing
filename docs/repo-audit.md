@@ -209,9 +209,11 @@ The catch-all trailing-slash redirect rule was deliberately removed because Netl
 
 - [ ] Publish directory is the repo root; every committed file is public
 - [ ] Header/footer duplicated across 29 pages, with known drift between copies
-- [ ] Schema: "telecom" used instead of "telephone"
-- [ ] Schema: orphan FAQ microdata with no parent FAQPage scope
-- [ ] Schema: hardcoded stale dateModified values
+- [x] Schema: "telecom" used instead of "telephone" — resolved. Renamed across 24 pages; the 4 state landing pages carried a redundant `telecom` block alongside an already-correct `telephone` string and had that block deleted outright. Zero occurrences remain repo-wide.
+- [x] Schema: `telephone` held a `ContactPoint` object where schema.org expects Text — resolved. Flattened to a bare string on all 28 `MedicalBusiness` nodes; the `ContactPoint` wrapper and `contactType` were dropped as they add nothing for a solo practitioner.
+- [ ] Schema: orphan FAQ microdata with no parent FAQPage scope — resolved on `/`, `/people-pleasing/`, and `/telehealth/`, where a valid FAQPage block already existed in JSON-LD and the dead microdata attributes were stripped so JSON-LD is the single source. Still open on `/ohio-telehealth-therapy/` and `/utah-telehealth-therapy/`: both carry orphan Question/Answer microdata **and** have no FAQPage block in JSON-LD, so the microdata cannot be stripped until FAQPage JSON-LD is authored for them. Stripping first would silently drop the FAQ content from structured data entirely.
+- [ ] Schema: `/minnesota-telehealth-therapy/` and `/north-dakota-telehealth-therapy/` express their FAQs as correctly scoped FAQPage **microdata only**, with no JSON-LD equivalent. This is valid as-is and was deliberately left alone, but it is inconsistent with every other page on the site, which uses JSON-LD. Decide whether to convert these two for consistency. Note that a plain grep for `FAQPage` hits these files via `itemtype` attributes and can be mistaken for JSON-LD coverage — parse, do not grep.
+- [ ] Schema: `dateModified` values are current as of 2026-07-29 but remain hardcoded per page with no build-time automation, so they will drift stale again. Only `/` and `/nervous-system-regulation-for-high-achievers/` carry the property at all; it was deliberately not added elsewhere, since inventing a modification date is data fabrication rather than a structural fix.
 - [ ] Schema: duplicate Service / MedicalTherapy nodes
 - [ ] Schema: thin Person node
 - [ ] _redirects: /privacy and /terms rules are inert no-ops and would create an infinite redirect if a ! were added
