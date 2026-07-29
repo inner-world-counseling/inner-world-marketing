@@ -44,13 +44,6 @@
         "telephone": "+1-701-404-7895",
         "address": { "@type": "PostalAddress", "addressLocality": "Horace", "addressRegion": "ND", "addressCountry": "US" },
         "areaServed": ["ND","MN","OH","UT"],
-        "hasCredential": {
-          "@type": "EducationalOccupationalCredential",
-          "name": "EMDR Trained Professional",
-          "credentialCategory": "Professional Training",
-          "recognizedBy": { "@type": "Organization", "name": "EMDR International Association", "url": "https://www.emdria.org" },
-          "url": "https://www.emdria.org/directory/people/deirdre-kuvaas/"
-        },
         "founder": { "@id": "https://deirdrekuvaas.com/#person" },
         "sameAs": ["https://maps.app.goo.gl/MdUY176SzWX2Cpk48","https://www.zocdoc.com/practice/inner-world-counseling-services-pllc-169362"]
       },
@@ -58,12 +51,84 @@
         "@type": "Person",
         "@id": "https://deirdrekuvaas.com/#person",
         "name": "Deirdre Kuvaas",
+        "honorificSuffix": "LPCC",
         "jobTitle": "Licensed Professional Clinical Counselor",
-        "worksFor": { "@id": "https://deirdrekuvaas.com/#organization" },
-        "hasCredential": { "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "LPCC" },
-        "memberOf": { "@type": "Organization", "name": "EMDR International Association", "url": "https://www.emdria.org/" },
-        "identifier": { "@type": "PropertyValue", "propertyID": "NPI", "value": "1881112399" },
-        "knowsAbout": ["Trauma therapy","EMDR","Cognitive Processing Therapy","PTSD","Complex Trauma","Anxiety Disorder"],
+        "worksFor": {
+          "@id": "https://deirdrekuvaas.com/#organization"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "license",
+            "name": "Licensed Professional Clinical Counselor (LPCC)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "license",
+            "name": "Licensed Clinical Mental Health Counselor (LCMHC)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Professional Training",
+            "name": "EMDR Trained Professional",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "EMDR International Association",
+              "url": "https://www.emdria.org"
+            },
+            "url": "https://www.emdria.org/directory/people/deirdre-kuvaas/"
+          }
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Mary"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "East Stroudsburg University of Pennsylvania"
+          }
+        ],
+        "memberOf": {
+          "@type": "Organization",
+          "name": "EMDR International Association",
+          "url": "https://www.emdria.org/"
+        },
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "propertyID": "NPI",
+            "value": "1881112399"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "North Dakota LPCC License",
+            "value": "1330-10-15-23-548"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Minnesota LPCC License",
+            "value": "3568"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Ohio LPCC License",
+            "value": "E.2404393"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Utah LCMHC License",
+            "value": "13955309-6004"
+          }
+        ],
+        "knowsAbout": [
+          "Trauma therapy",
+          "EMDR",
+          "Cognitive Processing Therapy",
+          "PTSD",
+          "Complex Trauma",
+          "Anxiety Disorder"
+        ],
         "sameAs": [
           "https://npiregistry.cms.hhs.gov/provider-view/1881112399",
           "https://www.psychologytoday.com/us/therapists/deirdre-kuvaas-fargo-nd/1073735",
