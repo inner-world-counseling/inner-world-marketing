@@ -18,3 +18,10 @@
 /oh-therapy  /ohio-telehealth-therapy/  301
 /ut-therapy  /utah-telehealth-therapy/  301
 /cognitive-behavioral-therapy /cognitive-processing-therapy/ 301
+
+# Repo-internal files that live in the publish directory but are not site
+# content. The ! is required: without it Netlify serves the existing file and
+# the rule never fires. Targets are /404.html, which matches neither source
+# pattern, so there is no loop.
+/CLAUDE.md   /404.html   404!
+/docs/*      /404.html   404!
