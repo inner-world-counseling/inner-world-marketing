@@ -26,3 +26,8 @@
 /CLAUDE.md   /404.html   404!
 /README.md   /404.html   404!
 /docs/*      /404.html   404!
+
+# Headshot renamed 2026-08-16 to include ND, her primary market, in the
+# filename. Single specific rule, not a splat - the old path is a real file
+# URL that may be cached or externally linked.
+/images/deirdre-kuvaas-trauma-specialist-mn-oh-ut.webp  /images/deirdre-kuvaas-trauma-therapist-nd-mn-oh-ut.webp  301
