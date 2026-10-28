@@ -98,6 +98,11 @@ document.addEventListener("DOMContentLoaded",function(){const e=document.querySe
     if (overlay || e.defaultPrevented || e.button !== 0) return;
     var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
     if (!isPortalLink(a)) return;
+    // The header "Client Portal" link also points at clientsecure.me, but it is
+    // for existing clients signing in, not new enquiries. They must never be
+    // told the caseload is full, so any link marked data-waitlist-exempt is
+    // left alone and navigates normally.
+    if (a.hasAttribute("data-waitlist-exempt")) return;
     e.preventDefault();
     e.stopImmediatePropagation();
     open(a.href);
