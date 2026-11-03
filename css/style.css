@@ -22,3 +22,15 @@
   .site-logo img{height:80px}
   .main-nav__item .main-nav__cta{padding:.5rem .75rem!important;margin-left:0}
 }
+
+/* Phone overflow fixes, 480px and below. The footer badge row is a non-wrapping flex row that ran
+   36px past a 375px content box (from about 426px down); let the legal links wrap onto their own line.
+   The Get in Touch email address is one unbreakable token wider than the content box; let it break.
+   The last rule is the Contact paragraph on /privacy/ and /terms/, which prints the address as plain text. */
+@media (max-width:480px){
+  .footer__badge-row .container{flex-wrap:wrap}
+  .footer-legal{max-width:100%}
+  .footer-legal > div{flex-wrap:wrap}
+  main a[href^="mailto:"]{overflow-wrap:anywhere}
+  main > .section > .container > h2 + p:last-child{overflow-wrap:anywhere}
+}
