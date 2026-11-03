@@ -162,6 +162,15 @@
   color: #ffffff !important; 
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
+/* How I Can Help cards */
+.help-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.help-card { display: flex; flex-direction: column; }
+.help-card .service-card__body { display: flex; flex-direction: column; align-items: flex-start; flex: 1; }
+.help-card .btn { margin-top: auto; }
+.help-card__image { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; }
+.help-card__image--anxiety { object-position: center 80%; }
+.help-card__image--trauma { object-position: center 35%; }
+@media (max-width: 768px) { .help-cards { grid-template-columns: 1fr; } }
 </style>
 <script type="application/ld+json">
 {
@@ -671,6 +680,30 @@
 </ul>
 <h3>You Don't Have to Keep Feeling This Way.</h3>
 <p>Whether you recognize yourself in one of these experiences or several, therapy can help you work through what's happening and find ways to move forward.</p>
+</div>
+</section>
+<!-- How I Can Help -->
+<section class="section section--cream">
+<div class="container">
+<h2 class="text-center">How I Can Help</h2>
+<div class="help-cards">
+<div class="service-card help-card">
+<img src="/images/anxiety-therapy.webp" width="900" height="1350" alt="Woman sitting peacefully on the grass beside a calm lake" loading="lazy" decoding="async" class="help-card__image help-card__image--anxiety"/>
+<div class="service-card__body">
+<h3 class="service-card__title">Anxiety Therapy</h3>
+<p class="service-card__text">When worry, overthinking, and self-doubt start taking up too much space in your life, therapy can help you find relief, manage overwhelming thoughts, and feel more confident navigating everyday challenges.</p>
+<a class="btn btn--outline" href="/counseling-for-anxiety/">Learn More About Anxiety Therapy</a>
+</div>
+</div>
+<div class="service-card help-card">
+<img src="/images/trauma-therapy.webp" width="900" height="1350" alt="Morning sunlight streaming through trees in a quiet park" loading="lazy" decoding="async" class="help-card__image help-card__image--trauma"/>
+<div class="service-card__body">
+<h3 class="service-card__title">Trauma Therapy</h3>
+<p class="service-card__text">Painful experiences can continue affecting how you feel, think, and connect with others long after they've happened. Therapy can help you process those experiences, reduce their impact, and begin moving forward.</p>
+<a class="btn btn--outline" href="/counseling-for-trauma/">Learn More About Trauma Therapy</a>
+</div>
+</div>
+</div>
 </div>
 </section>
 <!-- Ready for Something Different -->
