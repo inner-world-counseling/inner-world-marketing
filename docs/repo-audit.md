@@ -541,20 +541,35 @@ The catch-all trailing-slash redirect rule was deliberately removed because Netl
 - [x] **Header nav overflow at desktop widths: RESOLVED 2026-11-02, branch `header-overflow-fix`, CSS only.** Original note follows the details.
   - **Cause, measured:** with Client Portal (PR #86) the desktop nav needed about 1263px against its 1152px container: left list 488, logo plus 2rem margins 186, right list 590. At 1440px and above the side margin absorbed the excess, so only narrower viewports scrolled.
   - **Before** (scrollWidth minus clientWidth, identical on `/`, `/counseling-for-trauma/`, `/north-dakota-telehealth-therapy/` and `/faqs/`): 1024 **+119** (Client Portal, with the hidden Resources dropdown also at the edge); 1280 **+54**; 1366 **+11**; 1440 0; 1920 0.
-  - **Fix:** two scoped media queries appended to `css/style.css`, both `min-width:769px` so the mobile menu is untouched.
+  - **Fix:** two scoped media queries appended to `css/style.css`, both `min-width:769px` so the mobile menu is untouched. **Revised on the same PR:** both tiers now start at `min-width:1000px`, and 999px and below use the hamburger menu. See the 769 to 999px item below.
     - 769 to 1439px: `gap:1rem`, link `font-size:.8125rem`, logo margin `0 1.25rem`.
     - 769 to 1219px: `gap:.625rem`, `font-size:.75rem`, `letter-spacing:.03em`, logo margin `0 .75rem`, logo height `80px`, CTA padding `.5rem .75rem`.
     - 1440px and up is unchanged. No HTML changed, and no nav item was hidden.
   - **After:** 0 overflow on all four pages at 1024, 1280, 1366, 1440 and 1920. All 9 top-level items are shown, single-line and clickable, including Request Consultation and Client Portal.
   - **Slack** (nav width minus content): 27px at 1024, 103 at 1100, about 200 at 1200 to 1219, and 31px from 1220 to 1439. Dropdowns, including the hidden Resources one, stay inside the viewport.
   - **Mobile:** at 390 and 768px, all 69 header elements have identical computed styles and sizes with and without the new rules, and the hamburger opens the menu.
-  - **Still open, outside the brief:**
+  - **Still open, outside the brief** (the 769 to 999px part is now resolved; see below):
     - 769 to about 999px still overflows, though less: 769 374 to 204; 800 343 to 173; 900 243 to 73; 960 183 to 13; 0 from 1000.
     - At 1440px and above the nav still extends about 111px past its container, unchanged, so the logo sits off-centre.
     - See the new item below.
   - **Original note (found 2026-11-02, sitewide):** In a 1280px frame the right-hand nav ends at 1319px against a 1265px client width; at 1366px it overflows by 11px; at 1440px and wider it fits. The overflowing element is the *"Client Portal"* link at the end of the right-hand group, which was added in PR #86. The header is identical on all 29 pages. Not fixed here because the header was frozen. It likely needs a nav gap or font-size tweak at 1024 to 1440px in `css/style.css`.
 - [ ] **"Get in Touch" email link overflows at 390px, found 2026-11-02.** `deirdre@innerworldcounselingservices.com` is one unbreakable token wider than a 375px content box. It overflows on both service pages, inside the kept, byte-identical Get in Touch block, and probably on every page that carries the block. Fix with `overflow-wrap: anywhere` on that paragraph or link. This is separate from the footer overflow item above, which reproduces on these pages too.
-- [ ] **Header nav still overflows at 769 to about 999px (tablet landscape), found 2026-11-02.** After the CSS fit, the nav needs 934px at its tightest settings, but its container is only 706px at 769 and 937px at 1000. The remaining overflow is 204px at 769, 73 at 900 and 13 at 960. Two ways to close it, both decisions:
+- [x] **Header nav at 769 to 999px: RESOLVED 2026-11-02 (PR #90, same branch) by moving the mobile-menu breakpoint from 768px to 999px.** The desktop nav could not fit this range at 13px or more. The tightest 13px setting still needed 880px, against a 706px container at 769. The owner chose the existing hamburger menu for 999px and below, and accepted the 12px desktop tier from 1000px up.
+  - **`css/style.css` changes:**
+    - The single `@media (max-width:768px)` query was split. Its 11 header, nav and menu rules moved unchanged into a new `@media (max-width:999px)` query at the same position: `.site-header .container`, `.site-logo`, `.site-logo img`, `.nav-toggle`, `.main-nav`, `.main-nav__list` (two rules), `.main-nav__list.is-open`, `.main-nav__link`, `.main-nav__dropdown` and `.main-nav__item.is-open .main-nav__dropdown`.
+    - `:root` (section padding), `.top-bar` and every content and footer rule stay in `max-width:768px`.
+    - Both PR #90 desktop tiers now start at `min-width:1000px` instead of 769px.
+    - Unchanged: the two `max-width:1024px` queries and `index.html`'s help-cards 768px query.
+  - **`js/main.js` change:** the mobile dropdown tap toggle went from `window.innerWidth<=768` to `<=999`. It was the only width check in the file. The waitlist code and `WAITLIST_ACTIVE = false` are byte-identical.
+  - **Verified locally on `/` and `/faqs/` at 390, 800, 900, 999, 1000, 1024, 1280, 1366 and 1440px, 18/18:**
+    - Zero header overflow at every width.
+    - At 999px and below the hamburger shows, opens, closes and toggles the *Get Started* dropdown. Request Consultation and Client Portal are reachable inside the open menu.
+    - At 1000px and up the desktop nav shows all 9 items on one line, with both buttons clickable. Text is 12px at 1000 and 1024, 13px at 1280 and 1366, and 14px at 1440.
+    - **Computed styles of all 94 top-bar and header elements:** identical to main at 390 and 768px (menu open and closed), and identical to the PR #90 head at 1000, 1024, 1280, 1366 and 1440. At 800, 900 and 999 the header uses exactly the 768px mobile rules. The comparison was run with transitions disabled and a same-file control.
+    - The only page-level overflow left is the already-logged footer-legal links at 390px (+36).
+  - **Visible change at 769 to 999px:** tablets now get the hamburger menu, with the 70px logo, instead of an overflowing desktop nav. The top bar (social icons and contact line) stays visible down to 769px as before and does not overflow.
+  - **Original note:** **Header nav still overflows at 769 to about 999px (tablet landscape), found 2026-11-02.** After the CSS fit, the nav needs 934px at its tightest settings, but its container is only 706px at 769 and 937px at 1000. The remaining overflow is 204px at 769, 73 at 900 and 13 at 960. Two ways to close it, both decisions:
   - **Move the hamburger breakpoint** from 768 to about 999px. This changes what tablet users see, but hides nothing behind anything except the toggle.
   - **Shrink the nav further**, with smaller type or logo, which is already tight at 12px.
   - Related, also a decision: at 1440px and above the nav overflows its own container by about 111px, so the logo is off-centre. Applying the 769 to 1439px tier to all desktop widths would centre it, at 13px link text.
+- [ ] **Desktop nav extends past its container at 1440px and up, logo off-centre, found 2026-11-02 (pre-existing since PR #86).** At 14px the nav needs about 1263px against a 1152px container. The excess (about 111px) sits in the right-hand margin, so there is no page overflow, but the logo is not centred. A decision: extending the `min-width:1000px and max-width:1439px` tier to all desktop widths would centre it, with 13px nav text at every desktop width.
