@@ -7,9 +7,6 @@
   padding: 15px 0;
 }
 
-.page-photo { display:block; width:100%; max-width:760px; height:auto; aspect-ratio:3/2; object-fit:cover; border-radius:6px; margin:1.5rem auto; }
-.page-photo--anxiety { object-position: center 80%; }
-.page-photo--trauma { object-position: center 35%; }
 /* Header nav fit, 1000px to 1439px. With the Client Portal link (PR #86) the desktop
    nav was ~112px wider than its 1152px container and overflowed the page below ~1392px.
    999px and below use the hamburger menu (header rules in the max-width:999px query). */
