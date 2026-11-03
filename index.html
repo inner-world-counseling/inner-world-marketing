@@ -162,6 +162,15 @@
   color: #ffffff !important; 
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
+/* How I Can Help cards */
+.help-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.help-card { display: flex; flex-direction: column; }
+.help-card .service-card__body { display: flex; flex-direction: column; align-items: flex-start; flex: 1; }
+.help-card .btn { margin-top: auto; }
+.help-card__image { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; }
+.help-card__image--anxiety { object-position: center 80%; }
+.help-card__image--trauma { object-position: center 35%; }
+@media (max-width: 768px) { .help-cards { grid-template-columns: 1fr; } }
 </style>
 <script type="application/ld+json">
 {
@@ -559,8 +568,16 @@
 </picture>
 <div class="hero__content" style="position: relative; z-index: 1;">
 <div id="hero-description">
-<h1 class="extracted-style-2">Online Trauma Therapy &amp; EMDR Counseling in North Dakota &amp; Minnesota</h1>
-<p style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Deirdre Kuvaas is a Licensed Professional Clinical Counselor specializing in online trauma therapy for high-functioning adults in North Dakota and Minnesota, and is also licensed in Ohio. She provides evidence-based EMDR therapy and Cognitive Processing Therapy (CPT) to help clients overcome anxiety, burnout, perfectionism, and PTSD through secure virtual sessions.</p>
+<h1 class="extracted-style-2">Tired of Overthinking, Feeling on Edge, or Carrying the Weight of the Past?</h1>
+<p style="font-size: 1.25rem; font-weight: 600; line-height: 1.5; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Online Trauma &amp; Anxiety Therapy for Adults in North Dakota and Minnesota</p>
+<p style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Does your mind constantly jump to worst-case scenarios? Do you replay conversations, question yourself, or struggle to relax even when everything seems fine?</p>
+<p style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Maybe difficult experiences from your past continue to affect your relationships, how you feel about yourself, or how you respond to everyday situations.</p>
+<p style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">You might be exhausted from worrying, feeling overwhelmed by your emotions, or finding yourself stuck in patterns you don't know how to change.</p>
+<p style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Whatever you're experiencing, you don't have to figure it out alone.</p>
+<p style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">At Inner World Counseling Services PLLC, I help adults work through trauma and anxiety, find relief from distressing symptoms, and make meaningful changes in their lives.</p>
+<div class="hero__cta" style="margin-bottom: 1.5rem;">
+<a href="https://deirdre-kuvaas.clientsecure.me" class="btn btn--primary spwidget-button" data-spwidget-scope-id="2fc241c4-0b68-49a2-96dc-4239833e7127" data-spwidget-scope-uri="deirdre-kuvaas" data-spwidget-application-id="7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b" data-spwidget-type="OAR" data-spwidget-scope-global data-spwidget-autobind rel="noopener noreferrer">Schedule a Free Consultation</a>
+</div>
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 1.5rem;">
 <a href="/counseling-for-trauma/" style="color: #ffffff; text-decoration: underline; text-underline-offset: 4px;">Online trauma therapy</a>
 <a href="/emdr/" style="color: #ffffff; text-decoration: underline; text-underline-offset: 4px;">EMDR therapy</a>
@@ -584,9 +601,59 @@
 <main>
 <div class="container">
 </div>
+<!-- Entity Block -->
+<section class="section section--cream">
+<div class="container extracted-style-4">
+<p>Deirdre Kuvaas is a Licensed Professional Clinical Counselor (LPCC) and the founder of Inner World Counseling Services, a telehealth therapy practice specializing in trauma and anxiety treatment. She provides specialized online trauma therapy (EMDR &amp; CPT) for high-functioning adults experiencing burnout and PTSD across North Dakota and Minnesota, and is also licensed in Ohio. All sessions are provided online.</p>
+</div>
+</section>
+<!-- Does Any of This Sound Familiar? -->
+<section class="section" id="hidden-trauma">
+<div class="container">
+<h2>Does Any of This Sound Familiar?</h2>
+<p>Maybe you've been struggling for a while, but you're not entirely sure how to explain what you're experiencing.</p>
+<p>See if any of these sound familiar:</p>
+<ul class="checklist">
+<li><strong>Your mind never seems to slow down.</strong> You replay conversations, worry about what might happen, or spend hours thinking about things you can't control.</li>
+<li><strong>Your inner critic never seems to let up.</strong> You beat yourself up over mistakes, replay things you wish you'd done differently, or struggle with feelings of shame and not being good enough. Even when you're doing your best, it rarely feels like enough.</li>
+<li><strong>You struggle to relax or let your guard down.</strong> Even when things are going well, you find yourself waiting for something to go wrong.</li>
+<li><strong>Your emotions feel difficult to manage.</strong> Sometimes you react more strongly than you'd like. Other times, you shut down, withdraw, or feel disconnected.</li>
+<li><strong>You have a hard time putting yourself first.</strong> You worry about disappointing people, struggle to set boundaries, or feel responsible for how others feel.</li>
+<li><strong>Things from your past still affect you.</strong> Painful memories, difficult relationships, or past experiences continue to influence how you feel and respond today.</li>
+<li><strong>You keep finding yourself in the same patterns.</strong> You know something isn't working, but changing how you think, feel, or respond seems harder than it should.</li>
+</ul>
+<h3>You Don't Have to Keep Feeling This Way.</h3>
+<p>Whether you recognize yourself in one of these experiences or several, therapy can help you work through what's happening and find ways to move forward.</p>
+</div>
+</section>
+<!-- How I Can Help -->
+<section class="section section--cream">
+<div class="container">
+<h2 class="text-center">How I Can Help</h2>
+<div class="help-cards">
+<div class="service-card help-card">
+<img src="/images/anxiety-therapy.webp" width="900" height="1350" alt="Woman sitting peacefully on the grass beside a calm lake" loading="lazy" decoding="async" class="help-card__image help-card__image--anxiety"/>
+<div class="service-card__body">
+<h3 class="service-card__title">Anxiety Therapy</h3>
+<p class="service-card__text">When worry, overthinking, and self-doubt start taking up too much space in your life, therapy can help you find relief, manage overwhelming thoughts, and feel more confident navigating everyday challenges.</p>
+<a class="btn btn--outline" href="/counseling-for-anxiety/">Learn More About Anxiety Therapy</a>
+</div>
+</div>
+<div class="service-card help-card">
+<img src="/images/trauma-therapy.webp" width="900" height="1350" alt="Morning sunlight streaming through trees in a quiet park" loading="lazy" decoding="async" class="help-card__image help-card__image--trauma"/>
+<div class="service-card__body">
+<h3 class="service-card__title">Trauma Therapy</h3>
+<p class="service-card__text">Painful experiences can continue affecting how you feel, think, and connect with others long after they've happened. Therapy can help you process those experiences, reduce their impact, and begin moving forward.</p>
+<a class="btn btn--outline" href="/counseling-for-trauma/">Learn More About Trauma Therapy</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Who I Work With -->
 <section class="specialist-positioning">
 <div class="container">
-<h2>Specialized Online Trauma Therapy For:</h2>
+<h2>Who I Work With</h2>
 <ul>
 <li>High-functioning adults who feel successful externally but overwhelmed internally</li>
 <li>Professionals, caregivers, and high-achievers dealing with anxiety and burnout</li>
@@ -596,91 +663,16 @@
 </ul>
 </div>
 </section>
-<!-- Entity Block -->
-<section class="section section--cream">
-<div class="container extracted-style-4">
-<p>Deirdre Kuvaas is a Licensed Professional Clinical Counselor (LPCC) and the founder of Inner World Counseling Services, a telehealth therapy practice specializing in trauma and anxiety treatment. She provides specialized online trauma therapy (EMDR &amp; CPT) for high-functioning adults experiencing burnout and PTSD across North Dakota and Minnesota, and is also licensed in Ohio. All sessions are provided online.</p>
-<h2>Online Trauma Therapy for High-Functioning Adults in North Dakota &amp; Minnesota</h2>
-<p class="extracted-style-5">I am Deirdre Kuvaas, LPCC, and I provide specialized <strong>Online Trauma Therapy</strong> and anxiety counseling for high-functioning adults. As an <strong>EMDR-trained therapist</strong>, I utilize evidence-based tools like <strong>Virtual CPT</strong> to help you navigate PTSD, burnout, and people-pleasing patterns. Operating as a specialized telehealth practice, I provide expert treatment across North Dakota, Minnesota, and Ohio.</p>
-</div>
-</section>
-<!-- Trauma Therapy for High-Achieving Professionals Section -->
-<section class="section" id="hidden-trauma">
-<div class="container extracted-style-4">
-<h2>Trauma Therapy for High-Achieving Professionals</h2>
-<p class="extracted-style-5">Many high-achievers struggle with hidden trauma—the kind that doesn't always look like a single event but feels like chronic perfectionism, 'unearned' guilt, or the inability to feel safe even when successful. If you look fine on the outside but feel overwhelmed internally, you may be experiencing high-functioning trauma symptoms. We specialize in identifying these 'quiet' trauma patterns that others often miss.</p>
-</div>
-</section>
-<!-- Specialized Telehealth Support For -->
-<section class="section section--sage">
-<div class="container extracted-style-6">
-<h3>Specialized Telehealth Support For:</h3>
-<ul class="extracted-style-7">
-<li class="extracted-style-8"><strong>High-functioning anxiety &amp; chronic overthinking</strong></li>
-<li class="extracted-style-9"><strong>PTSD &amp; Complex Trauma (C-PTSD) recovery</strong></li>
-<li class="extracted-style-10"><strong>Nervous system regulation &amp; burnout prevention</strong></li>
-<li class="extracted-style-11"><strong>Attachment wounds &amp; people-pleasing behaviors</strong></li>
-</ul>
-</div>
-</section>
-<!-- Intro Section: Text + Image -->
-<section class="section">
-<div class="container">
-<div class="two-col">
-<div>
-<h2 class="extracted-style-12">Stop Surviving. Start Healing.</h2>
-<p>True healing requires more than just managing symptoms or repeating positive affirmations. It requires a clear look at the survival patterns that govern your behavior. As a <a href="/counseling-for-trauma/">trauma</a> therapist, I work with people who are ready to stop performing and start living. Whether you are struggling with <a href="/counseling-for-trauma/">childhood trauma</a>, <a href="/counseling-for-anxiety/">anxiety</a>, or the exhaustion of people pleasing, I provide the evidence based tools you need to understand your past and reclaim your future. Let us move past the surface and get to the roots of your well-being.</p>
-<p class="extracted-style-13"><strong>Get back to the real you. Evidence-Based Virtual Therapy with Deirdre Kuvaas, LPCC.</strong></p>
-<a aria-label="See all therapy services" class="btn btn--outline" href="/services/">Explore trauma and anxiety services</a>
-</div>
-<div class="two-col__image">
-<img alt="Virtual trauma therapy for high-achieving professionals with Deirdre Kuvaas, EMDR Trained Therapist." height="533" loading="lazy" src="/.netlify/images?url=/images/roots-of-healing.webp&amp;w=600" title="Virtual trauma therapy session with EMDR-trained therapist" width="800"/>
-</div>
-</div>
-</div>
-</section>
-<!-- Survival Habits: Full-bleed split -->
-<div class="split-section">
-<div aria-label="A peaceful mindfulness scene at Inner World Counseling." class="split-section__image extracted-style-14" role="img" title="Therapeutic environment for trauma healing"></div>
-<div class="split-section__content">
-<h2>Survival Habits Aren’t Personality Traits</h2>
-<p>I believe that many of the things you struggle with — like being a <strong>perfectionist, a people-pleaser, or someone who simply cannot relax</strong> — aren’t just "who you are." They are survival habits you picked up a long time ago. They worked back then to keep the peace, but they are burning you out now.</p>
-<p>Most of these habits are driven by a <strong>loud inner critic</strong> — that internal voice that never stops judging, second-guessing, or <strong>telling you that you haven’t done enough.</strong> It’s the voice that keeps you on edge, making sure you stay "perfect" so you stay safe.</p>
-<p><strong>Stop Performing. Start Healing.</strong></p>
-</div>
-</div>
-<!-- Vibe Check Section -->
-<section class="section">
-<div class="container">
-<h2>The "Everything is Fine" Vibe Check:</h2>
-<ul class="checklist">
-<li><label class="checklist__label" for="vibe-check-1"><input class="checklist__input" id="vibe-check-1" name="vibe-check-1" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">You apologize for things that are not your fault</span></label></li>
-<li><label class="checklist__label" for="vibe-check-2"><input class="checklist__input" id="vibe-check-2" name="vibe-check-2" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">You read their mood constantly to avoid upsetting them</span></label></li>
-<li><label class="checklist__label" for="vibe-check-3"><input class="checklist__input" id="vibe-check-3" name="vibe-check-3" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">You shrink yourself to make them feel comfortable</span></label></li>
-<li><label class="checklist__label" for="vibe-check-4"><input class="checklist__input" id="vibe-check-4" name="vibe-check-4" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">You feel responsible for their emotions</span></label></li>
-<li><label class="checklist__label" for="vibe-check-5"><input class="checklist__input" id="vibe-check-5" name="vibe-check-5" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">You feel guilty taking breaks or using PTO</span></label></li>
-<li><label class="checklist__label" for="vibe-check-6"><input class="checklist__input" id="vibe-check-6" name="vibe-check-6" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">You can't set boundaries with demanding co-workers</span></label></li>
-<li><label class="checklist__label" for="vibe-check-7"><input class="checklist__input" id="vibe-check-7" name="vibe-check-7" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">Chest tightness when someone is upset</span></label></li>
-<li><label class="checklist__label" for="vibe-check-8"><input class="checklist__input" id="vibe-check-8" name="vibe-check-8" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">Instant <a href="/counseling-for-anxiety/">anxiety</a> if you sense disapproval</span></label></li>
-<li><label class="checklist__label" for="vibe-check-9"><input class="checklist__input" id="vibe-check-9" name="vibe-check-9" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">You feel like a burden when you have needs</span></label></li>
-<li><label class="checklist__label" for="vibe-check-10"><input class="checklist__input" id="vibe-check-10" name="vibe-check-10" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">Difficulty accepting praise</span></label></li>
-<li><label class="checklist__label" for="vibe-check-11"><input class="checklist__input" id="vibe-check-11" name="vibe-check-11" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">Your body reacts to doors slamming or cabinets closing loudly</span></label></li>
-<li><label class="checklist__label" for="vibe-check-12"><input class="checklist__input" id="vibe-check-12" name="vibe-check-12" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">Avoiding conflict, wondering if others are mad at you</span></label></li>
-<li><label class="checklist__label" for="vibe-check-13"><input class="checklist__input" id="vibe-check-13" name="vibe-check-13" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">Your inner critic basically a 24/7 supervisor who gives you a performance review every night and tells you that your "Best" still wasn't quite enough?</span></label></li>
-<li><label class="checklist__label" for="vibe-check-14"><input class="checklist__input" id="vibe-check-14" name="vibe-check-14" type="checkbox"/><span aria-hidden="true" class="checklist__box"></span><span class="checklist__text">Your "self-care" actually just a nightly ritual of wine, gummies, or doom-scrolling because it's the only way to manually shut off a brain that won't stop rehearsing tomorrow's social interactions?</span></label></li>
-</ul>
-<p class="extracted-style-58">This checklist is for self-reflection only and is not a diagnostic tool. If you're concerned about your mental health, please reach out to a licensed professional.</p>
-<p class="extracted-style-15"><em>If you checked more than two of these boxes, you're in the right place. Let's talk.</em></p>
-<a aria-label="Schedule your free therapy consultation" class="btn btn--primary extracted-style-16" href="/appointment-request/">Schedule Your Free Consultation</a>
-</div>
-</section>
-<!-- Ready for Something Different -->
+<!-- What Can You Expect From Therapy? -->
 <section class="section section--sage">
 <div class="container extracted-style-17">
-<h2>Ready for Something Different?</h2>
-<p>My philosophy is rooted in candor. You deserve a therapist who will be real with you, tell it like it is, and move at a pace that actually leads to change. Using tools like <a href="/emdr/">EMDR</a> and CPT, we work to dismantle the habits that keep you stuck.</p>
-<p>Healing isn't about becoming a "perfect" version of yourself. It's about finally being <strong>allowed to be a human being</strong> who can say "no" without guilt and "yes" to your own life.</p>
-<a aria-label="See all therapy services" class="btn btn--primary extracted-style-18" href="/services/">View EMDR or CPT services</a>
+<h2>What Can You Expect From Therapy?</h2>
+<p>Therapy isn't about having someone tell you what's wrong with you or what you should do differently.</p>
+<p>It's about having a space where you can talk openly, feel heard, and work through the things that have been weighing on you.</p>
+<p>My approach is warm, collaborative, and honest. I'll listen, ask questions, help you recognize patterns, and sometimes gently challenge you to look at things from a different perspective.</p>
+<p>Some sessions may focus on finding practical ways to manage what you're experiencing right now. Others may involve exploring past experiences, understanding difficult emotions, or working through beliefs that have been holding you back.</p>
+<p>We'll work together to figure out what makes sense for you and what you want to get out of therapy.</p>
+<p>You don't have to have everything figured out before you begin.</p>
 </div>
 </section>
 <!-- Quick Links -->
@@ -711,41 +703,27 @@
 <img alt="Deirdre Kuvaas providing specialized online therapy for residents of North Dakota." class="extracted-style-20" height="400" loading="lazy" src="/images/online-therapy-north-dakota-deirdre-kuvaas.webp" title="Deirdre Kuvaas, LPCC" width="600"/>
 </div>
 <div>
-<h3>Hi there! I am Deirdre! (Deer-dra)</h3>
-<p>I provide specialized telehealth support for high-functioning adults. As a dedicated trauma therapist, I offer a secure, virtual space for your healing across North Dakota, Minnesota, and Ohio, delivering expert care wherever you are located.</p>
-<p>I am the founder of Inner World Counseling Services, and my work is built on a simple premise: you deserve a space where you can finally stop carrying the weight of everyone else's needs. My background in trauma and addiction recovery has shown me that the "strong one" is often just someone who learned that being strong was the only way to be safe. My goal is to help you dismantle those old survival habits so you can build a life that feels authentic to you.</p>
-<p>I do not sit across from you as a clinical observer or a rigid expert. I show up as a partner who is direct, warm, and deeply invested in your growth. My clients describe me as authentic, empowering, and honest, and I take pride in offering a space where we can skip the generic advice to focus on real change.</p>
-<h4>My Approach</h4>
-<ul>
-<li><strong>Rooted in Science:</strong> I use evidence-based tools like EMDR or CPT to address the underlying <a href="/counseling-for-trauma/">trauma</a> that fuels <a href="/counseling-for-anxiety/">anxiety</a>, perfectionism, and burnout.</li>
-<li><strong>Beyond Symptom Management:</strong> We will move past the surface to heal the origins of your struggle, ensuring that the relief you find is sustainable.</li>
-<li><strong>A Real Connection:</strong> Therapy is a collaborative, human process. You will find a straightforward and compassionate space where you are finally free to be your authentic self.</li>
-<li><strong>Specialized Expertise:</strong> I focus on the unique needs of high-functioning "fixers," "empaths," and "peacekeepers" who are ready to reclaim their lives.</li>
-</ul>
-<p>I am licensed to provide 100% virtual therapy for adults across North Dakota and Minnesota. <em>Broadening access to evidence-based care: I am also licensed in Ohio.</em> Whether you are ready to turn that compassion inward or finally set the boundaries you have been avoiding, I am here to help you get there.</p>
-<a aria-label="Learn more about Deirdre Kuvaas" class="btn btn--outline" href="/about/">Learn more about Deirdre Kuvaas, Trauma Therapist</a>
+<h2>Hi, I'm Deirdre! (Deer-dra)</h2>
+<p>I'm Deirdre Kuvaas, a Licensed Professional Clinical Counselor and the person behind Inner World Counseling Services.</p>
+<p>One of the things I find most meaningful about being a therapist is helping people understand the patterns they've carried for years, especially the ones that leave them feeling like they're never quite good enough.</p>
+<p>I'm particularly interested in how our experiences shape the way we see ourselves, from the harsh inner critic that won't let up to the shame and self-doubt that can keep us feeling stuck.</p>
+<p>My style is down-to-earth, curious, and honest. I'll listen, ask questions, share what I'm noticing, and sometimes challenge you to look at things differently. And yes, there's room for humor, too (and yes, swearing is absolutely welcome).</p>
+<a class="btn btn--outline" href="/about/">Get to Know Me</a>
 </div>
 </div>
 </div>
 </section>
-<!-- Begin Your Healing Journey -->
+<!-- Ready to Take the Next Step? -->
 <section class="section section--gray">
 <div class="container extracted-style-21">
-<h3>Begin Your Healing Journey</h3>
-<p>Schedule an appointment that fits your needs. You can choose between a <strong>free</strong> 15-minute consultation to see if we are a good match, or a full Diagnostic Assessment (1 hour) to begin your care immediately.</p>
-<p><strong>How to book:</strong></p>
-<ol class="extracted-style-22">
-<li>Click the button below to open our secure portal.</li>
-<li>Select your preferred service type.</li>
-<li>Choose a date and time that works for you.</li>
-</ol>
-<p class="extracted-style-23">Now booking new clients in ND, MN, &amp; OH.</p>
-<!-- SimplePractice Widget Placeholder -->
-<div class="extracted-style-24">
-<p class="credibility-line">
-Evidence-based trauma therapy using EMDR and Cognitive Processing Therapy (CPT), available online across North Dakota and Minnesota.
-</p>
-<a aria-label="Request a therapy appointment" class="btn btn--primary" href="https://deirdre-kuvaas.clientsecure.me" rel="noopener noreferrer" target="_blank">Request Appointment</a>
+<h2>Ready to Take the Next Step?</h2>
+<p>You don't have to know exactly what you want to work on before reaching out.</p>
+<p>Whether you're struggling with anxiety, wanting to work through painful experiences, or simply feeling stuck, we can start by talking about what's bringing you to therapy and what you're hoping to change.</p>
+<p>I offer individual online therapy for adults in North Dakota, Minnesota, and Ohio.</p>
+<p>If you're wondering whether we'd be a good fit, I offer a free consultation so we can talk about what you're looking for and whether my approach might be right for you.</p>
+<div class="hero__cta">
+<a href="https://deirdre-kuvaas.clientsecure.me" class="btn btn--primary spwidget-button" data-spwidget-scope-id="2fc241c4-0b68-49a2-96dc-4239833e7127" data-spwidget-scope-uri="deirdre-kuvaas" data-spwidget-application-id="7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b" data-spwidget-type="OAR" data-spwidget-scope-global data-spwidget-autobind rel="noopener noreferrer">Schedule a Free Consultation</a>
+<a class="btn btn--outline" href="/rates-insurance/">View Rates &amp; Insurance</a>
 </div>
 </div>
 </section>
