@@ -23,6 +23,11 @@ Reconcile its KNOWN OPEN ITEMS list as the final step of any change.
   known drift. Changing one means verifying all.
 - Parse HTML, do not grep. A grep for `FAQPage` hits microdata `itemtype`
   attributes and will be mistaken for JSON-LD coverage.
+- Any PR that changes a page's content (visible text, title, metas or
+  JSON-LD) also updates that page's `<lastmod>` in sitemap.xml to the
+  change date (YYYY-MM-DD, America/Chicago). That edit to the protected
+  sitemap.xml is pre-authorized; shared CSS/JS, `?v=` strings and
+  sitewide header/footer markup do not count as content.
 
 ## Verification bar
 Any change touching HTML or JSON-LD must confirm before completion:
