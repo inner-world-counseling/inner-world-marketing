@@ -623,3 +623,48 @@ The catch-all trailing-slash redirect rule was deliberately removed because Netl
   - **Judgement calls:** (1) The GoodTherapy `sameAs` removal (`7c32a8d`, 2026-10-28) was a sitewide JSON-LD change. It counts as content under the JSON-LD rule and sets the date for `/faqs/`, `/contact/`, `/appointment-request/`, `/privacy/` and `/terms/`. (2) PR #91's photo removal on the anxiety and trauma pages changed markup but no text, title, meta or JSON-LD, so it does not qualify; both pages date from 2026-11-02 either way.
   - **Validation:** `sitemap.xml` parses as XML and lists the same 28 URLs in the same order. It is byte-identical outside the 28 `<lastmod>` values, with the same length, CRLF intact, and `<loc>`, `<changefreq>`, `<priority>` and indentation untouched.
   - **Standing rule from now on** (also added to CLAUDE.md Hard constraints): any PR that changes a page's content (visible text, title, metas or JSON-LD) also updates that page's `<lastmod>` in `sitemap.xml` to the change date in America/Chicago. That `sitemap.xml` edit is pre-authorized. Shared CSS/JS, asset version strings and sitewide header/footer markup do not count.
+- [x] **EXTERNAL AUDIT FIX BATCH: 2026-11-04, branch `audit-fixes-nov4`.** The fixes from the Nov 4 external audits that the repo can make. The Good Faith Estimate wording was held for owner approval before merge.
+  - **Old-domain redirect: diagnosed, nothing changed.** `innerworldcounselingservices.com` is **not attached to this Netlify site**.
+    - Its nameservers are `ns-cloud-c1..c4.googledomains.com` (Google Domains, now Squarespace Domains), its A records point to Squarespace (198.185.159.x, 198.49.23.x), and the responses carry `Server: Squarespace`. `netlify.toml` and `_redirects` mention neither hostname.
+    - **Bare domain, http and https:** `/`, `/about/`, `/contact/`, `/services/`, `/faqs/` and any other path all return **301 to `https://deirdrekuvaas.com/`**. The forward is already permanent, but it **drops the path**: every old URL lands on the homepage.
+    - **`www.innerworldcounselingservices.com` does not resolve** (NXDOMAIN), so old `www` links fail outright.
+    - Because the domain is forwarded at the registrar, a Netlify `_redirects` rule would never see the request. `_redirects` is unchanged.
+    - **`www.deirdrekuvaas.com` is fine:** https 301s to the bare domain with the path kept; http 301s to `https://www.` first, then to the bare domain (two hops).
+  - **Good Faith Estimate notice** on `/rates-insurance/`: an H3 *Your Right to a Good Faith Estimate* and the CMS-model paragraph, placed directly after the *No Surprises Act* H3 and its paragraph, before *Accepted Insurance Plans*. `www.cms.gov/nosurprises` links to `https://www.cms.gov/nosurprises` (new tab, `rel="noopener noreferrer"`, like the page's other external links). Visible only, not in FAQ schema. Title, metas and JSON-LD unchanged.
+  - **Homepage hero button:** the *Schedule a Free Consultation* block (`div.hero__cta` and its spwidget `<a>`, byte-identical) moved from after the intro paragraphs to directly after the subheading. Nothing else in the hero moved.
+    - **Measured at 390x844** (375px layout width after the scrollbar): button top went from **1294px to 594px**, now inside the first screen.
+    - **At 1280px:** hero height is unchanged at 966px, the button is still centred, and its top went from 723 to 365px. No horizontal overflow at either width.
+  - **`/mental-health-links/`:** the `pendulum.org` entry was removed. It 301s twice to `digitalholdings.com/pendulum-org`, a domain-sale page. The entry was one `<li>` (the link text was its only description), and the rest of the Depression list is untouched.
+  - **Validation:** JSON-LD parses with 0 duplicate keys sitewide and is unchanged on the 3 pages. `<head>`, header and footer are byte-identical. The rendered-text diff covers only these three items. No em dashes were added (the homepage `<head>` keeps its 4 known title-family ones). CRLF is intact. `sitemap.xml` changed only `<lastmod>` for `/`, `/rates-insurance/` and `/mental-health-links/` (to 2026-11-04). All other protected files, CSS and JS are unchanged.
+  - **Rejected, with reasons:**
+    - **A bare `/*` splat redirect to fix the old domain:** it would loop (see `netlify.toml`), and it could not help anyway, because old-domain traffic never reaches Netlify. Any rule would have to be hostname-scoped and only after the domain is attached to this site.
+    - **Adding Grow Therapy to `sameAs`:** `sameAs` is for profiles that identify the same entity and that the practice controls and keeps current. It is held to the same bar as the LinkedIn and GoodTherapy decisions above. No owner-confirmed Grow Therapy profile URL was supplied, and the rules forbid inventing or enriching factual data.
+- [ ] **Old domain needs owner action at the registrar (Squarespace Domains), found 2026-11-04.**
+    - **Path forwarding:** keep the forward permanent (301), but turn on path forwarding so `innerworldcounselingservices.com/<path>` goes to `https://deirdrekuvaas.com/<path>` instead of the homepage. All five common old paths (`/`, `/about/`, `/contact/`, `/services/`, `/faqs/`) exist on `deirdrekuvaas.com` and return 200, so a straight path-preserving forward needs no exceptions.
+    - **`www`:** add `www.innerworldcounselingservices.com` to the same forward. It currently has no DNS record.
+    - **Alternative:** attach both hostnames to this Netlify site as domain aliases, then add hostname-scoped 301 rules at the top of `_redirects`.
+- [ ] **Deferred to the owner from the Nov 4 external audits (not repo-fixable without her input):**
+    - **Fees:** the audit wants published self-pay fees. `/rates-insurance/` says "please inquire". Publishing numbers is an owner decision, and the figures must come from her.
+    - **Clinical content:** the audit wants sources and last-reviewed dates. Only the clinician can supply and attest these.
+    - **Psychology Today:** the audit reports an expired label on the profile, which has to be fixed in the Psychology Today account.
+    - **GA4 and Metricool:** settings review, done in those dashboards, not in this repo.
+- [ ] **`/mental-health-links/` outbound links that need a decision, checked 2026-11-04 (flagged only; only pendulum.org was removed).** Every link was fetched with redirects followed. Links behind bot walls (APA, CDC, ADAA, DSM, NEDA) were rechecked in a real browser.
+    - **Likely repurposed:**
+      - *The Gift From Within* (`giftfromwithin.org`): the domain now serves cortisol, "cortisol belly" and GLP-1 weight-loss guides, which looks like a repurposed PTSD domain. Review first.
+    - **Broken:**
+      - *Mental Health America* (`www.mentalhealthamerica.net`): the TLS handshake fails and http returns 409. MHA is now at `mhanational.org`.
+      - *National Mental Health Association* (`www.nmha.org`): the https certificate has expired (http 301s to `mhanational.org`). It also duplicates MHA, so this entry and the one above could become a single `https://mhanational.org/` entry.
+      - *Depression Screening* (ADAA): the deep link returns 403 Access Denied in a real browser while `adaa.org` loads, so the page appears to be gone.
+    - **Works but has a host problem:**
+      - *Beyond OCD* (`www.beyondocd.org`): the certificate does not cover `www`. Chrome recovers to `beyondocd.org`, but strict clients fail. Change the link to `https://beyondocd.org/`.
+    - **Renamed, or redirects elsewhere, and still relevant:**
+      - *MentalHealth.gov* now goes to SAMHSA.
+      - *Sidran Institute* redirects to the Traumatic Stress Institute.
+      - *Trichotillomania Learning Center* is now the TLC Foundation for BFRBs.
+      - *American Dietetic Association* is the Academy of Nutrition and Dietetics.
+      - *American Psychological Society* is the Association for Psychological Science.
+      - The NCTSN terrorism page now redirects to "Terrorism and Violence".
+      - The three APA deep links redirect to current APA pages on the same topics.
+      - The labels could be updated.
+    - **Stale but on topic:** *Web of Addictions* (last dated 2003) and *Center for On-Line Addiction* (2019).
+    - **All other links load the expected organisation.**
