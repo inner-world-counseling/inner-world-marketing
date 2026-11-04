@@ -634,7 +634,8 @@ The catch-all trailing-slash redirect rule was deliberately removed because Netl
   - **Homepage hero button:** the *Schedule a Free Consultation* block (`div.hero__cta` and its spwidget `<a>`, byte-identical) moved from after the intro paragraphs to directly after the subheading. Nothing else in the hero moved.
     - **Measured at 390x844** (375px layout width after the scrollbar): button top went from **1294px to 594px**, now inside the first screen.
     - **At 1280px:** hero height is unchanged at 966px, the button is still centred, and its top went from 723 to 365px. No horizontal overflow at either width.
-  - **`/mental-health-links/`:** the `pendulum.org` entry was removed. It 301s twice to `digitalholdings.com/pendulum-org`, a domain-sale page. The entry was one `<li>` (the link text was its only description), and the rest of the Depression list is untouched.
+  - **`/mental-health-links/`, part one:** the `pendulum.org` entry was removed. It 301s twice to `digitalholdings.com/pendulum-org`, a domain-sale page. The entry was one `<li>` (the link text was its only description), and the rest of the Depression list is untouched.
+  - **`/mental-health-links/`, part two (PR #96 follow-up, same day):** removed *The Gift From Within* (domain repurposed), *National Mental Health Association* (expired certificate, duplicates MHA) and ADAA *Depression Screening* (page gone). Each was a single `<li>`, so link and label went together. *Beyond OCD* now links to `https://beyondocd.org/`. The outdated organisation-name labels were left as they are, on purpose. Verified: the rendered-text diff is only the three labels; JSON-LD, `<head>`, header and footer are byte-identical to `main`; no em dashes; CRLF intact; `<lastmod>` already 2026-11-04. 40 outbound links remain. All of them resolve except *Mental Health America* (see the open item below); the CDC, NEDA and DSM links return 403 to scripts but load in Chrome.
   - **Validation:** JSON-LD parses with 0 duplicate keys sitewide and is unchanged on the 3 pages. `<head>`, header and footer are byte-identical. The rendered-text diff covers only these three items. No em dashes were added (the homepage `<head>` keeps its 4 known title-family ones). CRLF is intact. `sitemap.xml` changed only `<lastmod>` for `/`, `/rates-insurance/` and `/mental-health-links/` (to 2026-11-04). All other protected files, CSS and JS are unchanged.
   - **Rejected, with reasons:**
     - **A bare `/*` splat redirect to fix the old domain:** it would loop (see `netlify.toml`), and it could not help anyway, because old-domain traffic never reaches Netlify. Any rule would have to be hostname-scoped and only after the domain is attached to this site.
@@ -648,23 +649,15 @@ The catch-all trailing-slash redirect rule was deliberately removed because Netl
     - **Clinical content:** the audit wants sources and last-reviewed dates. Only the clinician can supply and attest these.
     - **Psychology Today:** the audit reports an expired label on the profile, which has to be fixed in the Psychology Today account.
     - **GA4 and Metricool:** settings review, done in those dashboards, not in this repo.
-- [ ] **`/mental-health-links/` outbound links that need a decision, checked 2026-11-04 (flagged only; only pendulum.org was removed).** Every link was fetched with redirects followed. Links behind bot walls (APA, CDC, ADAA, DSM, NEDA) were rechecked in a real browser.
-    - **Likely repurposed:**
-      - *The Gift From Within* (`giftfromwithin.org`): the domain now serves cortisol, "cortisol belly" and GLP-1 weight-loss guides, which looks like a repurposed PTSD domain. Review first.
-    - **Broken:**
-      - *Mental Health America* (`www.mentalhealthamerica.net`): the TLS handshake fails and http returns 409. MHA is now at `mhanational.org`.
-      - *National Mental Health Association* (`www.nmha.org`): the https certificate has expired (http 301s to `mhanational.org`). It also duplicates MHA, so this entry and the one above could become a single `https://mhanational.org/` entry.
-      - *Depression Screening* (ADAA): the deep link returns 403 Access Denied in a real browser while `adaa.org` loads, so the page appears to be gone.
-    - **Works but has a host problem:**
-      - *Beyond OCD* (`www.beyondocd.org`): the certificate does not cover `www`. Chrome recovers to `beyondocd.org`, but strict clients fail. Change the link to `https://beyondocd.org/`.
-    - **Renamed, or redirects elsewhere, and still relevant:**
-      - *MentalHealth.gov* now goes to SAMHSA.
-      - *Sidran Institute* redirects to the Traumatic Stress Institute.
+- [ ] **`/mental-health-links/` outbound links still open, checked 2026-11-04.** Gift From Within, NMHA and ADAA Depression Screening were removed and Beyond OCD was fixed (see the batch entry above). Still open:
+    - **Broken, not yet briefed:**
+      - *Mental Health America* (`www.mentalhealthamerica.net`): the TLS handshake fails and http returns 409. MHA is now at `https://mhanational.org/`. Needs a decision: re-point it or remove it.
+    - **Outdated organisation names, left as is on purpose; logged for later:**
+      - *American Dietetic Association* is now the Academy of Nutrition and Dietetics.
+      - *American Psychological Society* is now the Association for Psychological Science.
       - *Trichotillomania Learning Center* is now the TLC Foundation for BFRBs.
-      - *American Dietetic Association* is the Academy of Nutrition and Dietetics.
-      - *American Psychological Society* is the Association for Psychological Science.
+      - *Sidran Institute* redirects to the Traumatic Stress Institute.
+      - *MentalHealth.gov* now goes to SAMHSA.
       - The NCTSN terrorism page now redirects to "Terrorism and Violence".
-      - The three APA deep links redirect to current APA pages on the same topics.
-      - The labels could be updated.
+      - The APA deep links redirect to current APA pages on the same topics.
     - **Stale but on topic:** *Web of Addictions* (last dated 2003) and *Center for On-Line Addiction* (2019).
-    - **All other links load the expected organisation.**
