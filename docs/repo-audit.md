@@ -649,9 +649,8 @@ The catch-all trailing-slash redirect rule was deliberately removed because Netl
     - **Clinical content:** the audit wants sources and last-reviewed dates. Only the clinician can supply and attest these.
     - **Psychology Today:** the audit reports an expired label on the profile, which has to be fixed in the Psychology Today account.
     - **GA4 and Metricool:** settings review, done in those dashboards, not in this repo.
-- [ ] **`/mental-health-links/` outbound links still open, checked 2026-11-04.** Gift From Within, NMHA and ADAA Depression Screening were removed and Beyond OCD was fixed (see the batch entry above). Still open:
-    - **Broken, not yet briefed:**
-      - *Mental Health America* (`www.mentalhealthamerica.net`): the TLS handshake fails and http returns 409. MHA is now at `https://mhanational.org/`. Needs a decision: re-point it or remove it.
+- [ ] **`/mental-health-links/` outbound links still open, checked 2026-11-04.** Gift From Within, NMHA and ADAA Depression Screening were removed, Beyond OCD was fixed and Mental Health America was re-pointed (see the batch entry above). Every link now resolves. Still open:
+    - [x] **Mental Health America: RESOLVED 2026-11-04 (PR #96).** `www.mentalhealthamerica.net` failed the TLS handshake (http returned 409). The link now points to `https://mhanational.org/` (200, "Home | Mental Health America"), with the label unchanged.
     - **Outdated organisation names, left as is on purpose; logged for later:**
       - *American Dietetic Association* is now the Academy of Nutrition and Dietetics.
       - *American Psychological Society* is now the Association for Psychological Science.
