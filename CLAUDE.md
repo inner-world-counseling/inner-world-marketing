@@ -11,7 +11,8 @@ Reconcile its KNOWN OPEN ITEMS list as the final step of any change.
 - Publish dir is the repo root. Anything committed is served publicly at
   https://deirdrekuvaas.com/<path>. Never commit scripts, notes, tooling,
   or credentials to root. Sole exception: `scripts/indexnow.py` (see
-  IndexNow below); it holds no secrets.
+  IndexNow below); it holds no secrets and `_redirects` blocks
+  `/scripts/*` from public serving (404).
 - Never alter license numbers, NPI, credentials, practitioner name, or any
   factual qualification claim. Stop and flag instead.
 - Never invent or enrich factual data. Correct structure only.
@@ -40,7 +41,8 @@ URLs: the same list as that PR's sitemap `<lastmod>` bumps, as full
 https://deirdrekuvaas.com URLs with trailing slashes. Pre-authorized; no
 owner approval needed. HTTP 200 or 202 means accepted. The key file
 `/8a3604932ad6138ccbebee3818d3475f.txt` at the repo root must stay served as plain text
-containing only the key; do not move, rename or redirect it.
+containing only the key; do not move, rename or redirect it. The script
+itself is not publicly served: `_redirects` returns 404 for `/scripts/*`.
 
 ## Verification bar
 Any change touching HTML or JSON-LD must confirm before completion:
