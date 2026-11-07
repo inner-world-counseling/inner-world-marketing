@@ -10,7 +10,8 @@ Reconcile its KNOWN OPEN ITEMS list as the final step of any change.
 ## Hard constraints
 - Publish dir is the repo root. Anything committed is served publicly at
   https://deirdrekuvaas.com/<path>. Never commit scripts, notes, tooling,
-  or credentials to root.
+  or credentials to root. Sole exception: `scripts/indexnow.py` (see
+  IndexNow below); it holds no secrets.
 - Never alter license numbers, NPI, credentials, practitioner name, or any
   factual qualification claim. Stop and flag instead.
 - Never invent or enrich factual data. Correct structure only.
@@ -31,6 +32,15 @@ Reconcile its KNOWN OPEN ITEMS list as the final step of any change.
   metadata-only correction that aligns a page's JSON-LD `dateModified`
   with its existing `<lastmod>` does not bump `<lastmod>` (bumping it
   would recreate the mismatch the correction removes).
+
+## IndexNow
+After any merged content change is live, run
+`python scripts/indexnow.py <url> ...` (or `-f <file>`) with the changed
+URLs: the same list as that PR's sitemap `<lastmod>` bumps, as full
+https://deirdrekuvaas.com URLs with trailing slashes. Pre-authorized; no
+owner approval needed. HTTP 200 or 202 means accepted. The key file
+`/8a3604932ad6138ccbebee3818d3475f.txt` at the repo root must stay served as plain text
+containing only the key; do not move, rename or redirect it.
 
 ## Verification bar
 Any change touching HTML or JSON-LD must confirm before completion:
