@@ -27,7 +27,10 @@ Reconcile its KNOWN OPEN ITEMS list as the final step of any change.
   JSON-LD) also updates that page's `<lastmod>` in sitemap.xml to the
   change date (YYYY-MM-DD, America/Chicago). That edit to the protected
   sitemap.xml is pre-authorized; shared CSS/JS, `?v=` strings and
-  sitewide header/footer markup do not count as content.
+  sitewide header/footer markup do not count as content. Exception: a
+  metadata-only correction that aligns a page's JSON-LD `dateModified`
+  with its existing `<lastmod>` does not bump `<lastmod>` (bumping it
+  would recreate the mismatch the correction removes).
 
 ## Verification bar
 Any change touching HTML or JSON-LD must confirm before completion:
