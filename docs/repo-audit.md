@@ -705,7 +705,7 @@ The catch-all trailing-slash redirect rule was deliberately removed because Netl
     - Titles, metas, header and footer are byte-identical.
     - The rendered-text diff is limited to the briefed items. No em dashes were added. CRLF is intact.
     - `sitemap.xml` changed only `<lastmod>`: `/faqs/` and `/counseling-for-anxiety/` moved to 2026-11-06, and `/about/` was already there.
-- [ ] **Other experience-length claims, left for the owner, found 2026-11-06.** No experience claim was found in any `<title>`, meta, JSON-LD or `llms.txt`. Two visible ones remain:
-    - `/about/`: *"Over my nine years as a counselor, I've integrated powerful, effective methods…"* (consistent with the corrected sentence).
-    - `/ohio-telehealth-therapy/`: *"…and brings over nine years of experience to every session."* ("over nine" against "9 as a counselor" and "about 14 in the field").
+- [x] **Other experience-length claims, found 2026-11-06: RESOLVED the same day.** Every experience claim now reads 9 years as a counselor (and about 14 in the field on `/about/`). No experience claim was found in any `<title>`, meta, JSON-LD or `llms.txt`. Two visible ones remain:
+    - `/about/`: *"Over my nine years as a counselor, I've integrated powerful, effective methods…"* (consistent with the corrected sentence). Left as is; it already matches "9 years as a counselor".
+    - [x] `/ohio-telehealth-therapy/`: **RESOLVED 2026-11-06 (PR #99, owner-approved):** *"…and brings over nine years of experience to every session."* now reads *"…and brings 9 years of counseling experience to every session."* Visible text only; `<lastmod>` was already 2026-11-06.
 - [ ] **Overlapping FAQ topics on other pages, found 2026-11-06:** `/` *What is the difference between EMDR or CPT for trauma?* and `/individual-therapy/` *What can I expect in our first individual session?* (its "Diagnostic Assessment" description now reads differently from the new `/faqs/` first-session answer). Owner decision whether to align them.
