@@ -660,3 +660,30 @@ The catch-all trailing-slash redirect rule was deliberately removed because Netl
       - The NCTSN terrorism page now redirects to "Terrorism and Violence".
       - The APA deep links redirect to current APA pages on the same topics.
     - **Stale but on topic:** *Web of Addictions* (last dated 2003) and *Center for On-Line Addiction* (2019).
+- [x] **YMYL CREDENTIALS BATCH: 2026-11-06, branch `ymyl-credentials-nov6`.** License numbers and the NPI are now visible next to official verification links, and every footer has a crisis line.
+  - **Source of truth:** every number was read programmatically from the `#person` JSON-LD `identifier` array, which is identical on all 28 pages, and none was retyped: ND LPCC `1330-10-15-23-548`, MN LPCC `3568`, MN LADC `305177`, OH LPCC `E.2404393`, NPI `1881112399`. Every visible license or NPI number sitewide is byte-identical to a schema value. JSON-LD is byte-identical on every page.
+  - **Verification links:** all are official sources, checked in a real browser on 2026-11-06. Each opens in a new tab with `rel="noopener noreferrer"` and an `aria-label` that names the license and number.
+    - **MN LPCC and LADC:** `https://bht.hlb.state.mn.us/#/onlineEntitySearch`, the Board of Behavioral Health and Therapy credential search. It is linked from `mn.gov/boards/behavioral-health/.../license-verification.jsp` and served on `state.mn.us`.
+    - **OH LPCC:** `https://elicense.ohio.gov/oh_verifylicense`, the eLicense Ohio License Look-Up used by the CSWMFT Board.
+    - **NPI:** `https://npiregistry.cms.hhs.gov/provider-view/1881112399`, the CMS NPPES record. It shows her name and her counselor taxonomy.
+    - None of these deep-links to her record (the MN and OH tools are search forms), so visitors search by the number shown.
+    - **ND LPCC: no link.** The ND Board of Counselor Examiners (`ndbce.org`) has no lookup tool. It publishes only a "Licensed Counselors" PDF roster (`/PDFs/counselor-list.pdf`, last modified 2026-10-29). The roster is an image scan with no searchable text, so it is not a lookup page. The ND number is shown without a link on `/about/`, and the ND state page was left unchanged.
+  - **`/about/`:** under *Licenses*, the existing pill list is unchanged. Below it is a new list in the same markup as the degrees list: *North Dakota LPCC*, *Minnesota LPCC*, *Ohio LPCC* and *Minnesota LADC*, each with its number and a Verify link (except ND). Below that is an *NPI* line linked to the NPI Registry. The degrees and the states paragraph are unchanged.
+  - **State pages:** a Verify link was added after the number on `/minnesota-telehealth-therapy/` (LPCC) and `/ohio-telehealth-therapy/`. MN also gained a *Minnesota LADC: 305177* line, with its Verify link, directly under the LPCC line. No surrounding copy moved or changed. The state-page NPI lines were left unlinked, since only license numbers were briefed.
+  - **`/personal-addiction-counseling/`:** *Licensed Alcohol and Drug Counselor (LADC), Minnesota License 305177* plus its Verify link, as a new paragraph directly after the *The "LADC + Trauma" Block* paragraph. That paragraph is where the page introduces the LADC credential.
+  - **Footer crisis line, on all 29 footer pages including `404.html`:** *In crisis? Call or text 988 (Suicide & Crisis Lifeline), or call 911. This practice does not provide emergency services.* 988 is a `tel:988` link.
+    - **Wording:** the only existing 988 wording was on `/terms/` ("call 988 or go to your nearest emergency room"). It has no text option, no 911 and no statement that this practice is not an emergency service, so the briefed wording was used. No page mentioned 911.
+    - **Placement:** footer markup has 4 variants: 26 pages share one copy, and `/`, `/counseling-for-anxiety/` and the nervous-system post each differ. In every variant the line is placed directly after the badge-row paragraph "Licensed to provide professional clinical counseling via telehealth…". It reuses that paragraph's own opening tag (inline style on 28 pages, `extracted-style-69` on `/`), so it looks the same everywhere. The footers are otherwise byte-identical.
+  - **Validation:**
+    - JSON-LD, `<head>` (titles and metas) and the header are byte-identical sitewide.
+    - Outside the footer, rendered text changed only on the 4 content pages, and only by the new license, NPI and Verify text.
+    - The crisis line appears exactly once per footer page.
+    - **Overflow:** none at a 390px layout width on all 29 footer pages, nor at 1280px on `/`, `/about/` and `/minnesota-telehealth-therapy/`.
+    - No em dashes added. CRLF is intact.
+    - **Sitemap:** only `<lastmod>` changed, to 2026-11-06, for `/about/`, MN, OH and `/personal-addiction-counseling/`. Footer-only pages were not bumped, per the standing rule.
+    - Other protected files, CSS and JS are unchanged. `404.html` gained only the crisis line.
+- [ ] **ND license has no public lookup link, found 2026-11-06.** The ND board offers only a scanned PDF roster, so no Verify link was added. If the board adds a lookup tool, link it on `/about/` and the ND state page. The owner could also decide that the roster PDF is acceptable as a link.
+- [ ] **Remaining YMYL items for the owner, noted 2026-11-06:**
+    - **EMDR and CPT training details:** the training provider, the completion year, and whether she is EMDRIA-certified or only trained. Only she can supply these.
+    - **A clinical review line on clinical pages**, for example "Reviewed by Deirdre Kuvaas, LPCC, on [date]". She must attest to it.
+    - **A source review** of the clinical claims, and citations where needed.
