@@ -3,6 +3,17 @@ const WAITLIST_ACTIVE = false;
 
 document.addEventListener("DOMContentLoaded",function(){const e=document.querySelector(".nav-toggle"),t=document.querySelectorAll(".main-nav__list");e&&e.addEventListener("click",function(){t.forEach(function(e){e.classList.toggle("is-open")}),e.classList.toggle("is-active");const n="true"===e.getAttribute("aria-expanded");e.setAttribute("aria-expanded",String(!n))}),document.querySelectorAll(".main-nav__item--has-dropdown > .main-nav__link").forEach(function(e){e.addEventListener("click",function(e){window.innerWidth<=999&&(e.preventDefault(),this.parentElement.classList.toggle("is-open"))})}),document.querySelectorAll(".faq-item__question").forEach(function(e){e.addEventListener("click",function(){const e=this.closest(".faq-item"),t=e.classList.contains("is-open");document.querySelectorAll(".faq-item").forEach(function(e){e.classList.remove("is-open")}),t||e.classList.add("is-open")})})});
 
+// GA4: count clicks on the SimplePractice booking links (a.spwidget-button).
+// Registered on window in the capture phase, before the waitlist handler
+// below, because that handler calls stopImmediatePropagation and would
+// otherwise swallow the click. Never prevents or stops the click, sends no
+// custom parameters, and skips portal links (data-waitlist-exempt).
+window.addEventListener("click", function (e) {
+  var a = e.target && e.target.closest ? e.target.closest("a.spwidget-button") : null;
+  if (!a || a.hasAttribute("data-waitlist-exempt")) return;
+  if (typeof gtag === "function") gtag("event", "consult_click");
+}, true);
+
 (function () {
   if (!WAITLIST_ACTIVE) return;
 
