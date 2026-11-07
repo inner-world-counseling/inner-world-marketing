@@ -34,3 +34,40 @@
   main a[href^="mailto:"]{overflow-wrap:anywhere}
   main > .section > .container > h2 + p:last-child{overflow-wrap:anywhere}
 }
+
+/* Header Book button, 999px and below. The Request Consultation CTA sits inside the collapsed menu there,
+   so a compact copy of it (same SimplePractice widget link) shows in the header bar beside the menu toggle.
+   Positioned like the toggle (absolute, vertically centred) so it never shifts the centred logo.
+   Hidden at 1000px and up, where the full nav and its CTA show, and while the menu is open, since the open
+   menu already lists Request Consultation and the toggle re-centres over it. Colours match .main-nav__cta.
+   Selectors are .main-nav .header-book because /contact/ and /appointment-request/ carry an inline SimplePractice
+   <style> after this file whose .spwidget-button rule (display, padding, border, font) would otherwise win. */
+@media (min-width:1000px){
+  .main-nav .header-book{display:none}
+}
+@media (max-width:999px){
+  .main-nav .header-book{position:absolute;right:44px;top:50%;transform:translateY(-50%);z-index:200;display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;background-color:var(--color-sage);color:#fff;font-family:var(--font-ui);font-size:.8125rem;font-weight:700;line-height:1;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;border:0;border-radius:4px;transition:background-color .25s ease}
+  .main-nav .header-book:hover,.main-nav .header-book:focus{background-color:var(--color-sage-dark);color:#fff}
+  .main-nav__list.is-open ~ .header-book{display:none}
+}
+/* Narrow phones: below 390px the centred logo and a full-size button collide (measured at 360 and 320px).
+   389px and below the button gets tighter padding; 359px and below the logo moves to the left edge. */
+@media (max-width:389px){
+  .main-nav .header-book{padding:0 .625rem;font-size:.75rem}
+}
+@media (max-width:359px){
+  .site-logo{margin:0 auto 0 0}
+}
+
+/* Banner titles centred at all widths. Short titles already looked centred because the banner container
+   shrink-wraps inside the flex .page-banner and is centred by its auto margins; a title that wraps sat flush left. */
+.page-banner__title{text-align:center}
+
+/* Phone overflow, 389px and below (measured at 360 and 320px). Two unbreakable tokens set the page width:
+   the footer email address, which also stretched the single-column footer grid, and
+   "UnitedHealthcare/Optum/Medica/UMR." in the insurance answers on /, the ND, MN and Fargo pages and /rates-insurance/.
+   Both may now break where they would otherwise overflow. */
+@media (max-width:389px){
+  .site-footer a[href^="mailto:"]{overflow-wrap:anywhere}
+  main p{overflow-wrap:break-word}
+}
