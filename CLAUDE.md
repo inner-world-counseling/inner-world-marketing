@@ -33,6 +33,8 @@ Reconcile its KNOWN OPEN ITEMS list as the final step of any change.
   metadata-only correction that aligns a page's JSON-LD `dateModified`
   with its existing `<lastmod>` does not bump `<lastmod>` (bumping it
   would recreate the mismatch the correction removes).
+  Exception: a sitewide `og:image`/`twitter:image` swap is metadata, not
+  content, and does not bump `<lastmod>`.
 
 ## IndexNow
 After any merged content change is live, run
