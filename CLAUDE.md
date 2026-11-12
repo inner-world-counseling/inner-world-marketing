@@ -36,6 +36,7 @@ Reconcile its KNOWN OPEN ITEMS list as the final step of any change.
   Exception: social preview metadata (`og:image`, `twitter:image`,
   `og:description`, `twitter:description`) is not content and does not
   bump `<lastmod>`.
+  Exception: removing a third-party tracking script is not content and does not bump `<lastmod>`.
 
 ## IndexNow
 After any merged content change is live, run
