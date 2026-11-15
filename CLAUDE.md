@@ -37,8 +37,11 @@ Reconcile its KNOWN OPEN ITEMS list as the final step of any change.
   `og:description`, `twitter:description`) is not content and does not
   bump `<lastmod>`.
   Exception: removing a third-party tracking script is not content and does not bump `<lastmod>`.
-  Exception: structured-data-only changes (e.g., adding a Person image) are
-  not content and do not bump `<lastmod>` or JSON-LD `dateModified`.
+  Exception: adding image or identifier properties (e.g., a Person image
+  or sameAs entry) to existing JSON-LD is not content and does not bump
+  `<lastmod>` or JSON-LD `dateModified`. Any change to schema text (FAQ
+  answers, descriptions, services, credentials) is content and follows
+  the normal rule.
 
 ## IndexNow
 After any merged content change is live, run
