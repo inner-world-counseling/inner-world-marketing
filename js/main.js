@@ -14,6 +14,19 @@ window.addEventListener("click", function (e) {
   if (typeof gtag === "function") gtag("event", "consult_click");
 }, true);
 
+// GA4: count clicks on links to the appointment request page (/appointment-request/).
+// Separate from consult_click above and registered the same way (window,
+// capture phase, so the waitlist handler cannot swallow it). Never prevents or
+// stops the click. Sends page_path: the path of the page the click came from.
+window.addEventListener("click", function (e) {
+  var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+  if (!a) return;
+  var u;
+  try { u = new URL(a.getAttribute("href"), location.href); } catch (err) { return; }
+  if (u.origin !== location.origin || u.pathname.replace(/\/?$/, "/") !== "/appointment-request/") return;
+  if (typeof gtag === "function") gtag("event", "booking_page_click", { page_path: location.pathname });
+}, true);
+
 (function () {
   if (!WAITLIST_ACTIVE) return;
 
