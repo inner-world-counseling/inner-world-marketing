@@ -1,28 +1,46 @@
 # Inner World Counseling Services, PLLC
 
-> Virtual (telehealth) trauma therapy practice serving North Dakota, Minnesota, and Ohio. Led by Deirdre Kuvaas, a licensed clinical counselor specializing in EMDR and Cognitive Processing Therapy for high-functioning adults with trauma, anxiety, and complex PTSD.
+> Online (telehealth) therapy practice led by Deirdre Kuvaas, LPCC, offering trauma, PTSD and anxiety therapy, including EMDR and Cognitive Processing Therapy, for adults in North Dakota and Minnesota. Also licensed in Ohio.
 
-## About the practice
+## Facts
 
-- **Provider:** Deirdre Kuvaas, LPCC (Licensed Professional Clinical Counselor) in North Dakota, Minnesota, and Ohio; LADC (Licensed Alcohol and Drug Counselor) in Minnesota
-- **NPI:** 1881112399
+- **Provider:** Deirdre Kuvaas, LPCC (Licensed Professional Clinical Counselor)
 - **Practice:** Inner World Counseling Services, PLLC
-- **Format:** 100% telehealth / online only
-- **States served:** North Dakota, Minnesota, Ohio (primary markets: North Dakota and Minnesota)
-- **Website:** [https://deirdrekuvaas.com](https://deirdrekuvaas.com)
+- **Format:** Online only (secure video telehealth). No in-person sessions.
+- **Licensed in:** North Dakota and Minnesota (LPCC), also Ohio (LPCC)
+- **LADC (Licensed Alcohol and Drug Counselor):** Minnesota only
+- **NPI:** 1881112399
+- **North Dakota LPCC License:** 1330-10-15-23-548
+- **Minnesota LPCC License:** 3568
+- **Minnesota LADC License:** 305177
+- **Ohio LPCC License:** E.2404393
+- **Training:** EMDR trained; CPT trained
+- **Membership:** EMDRIA (EMDR International Association) member
+- **Insurance (in network), as listed on the Rates & Insurance page:**
+  - North Dakota: Blue Cross Blue Shield of North Dakota, Sanford Health Plan, UnitedHealthcare/Optum/Medica/UMR
+  - Minnesota: Blue Cross and Blue Shield of Minnesota, UnitedHealthcare/Optum/Medica/UMR
+  - Ohio: UnitedHealthcare/Optum/Medica
+- **Clients:** Adults only (18+)
+- **Free consultation:** 15 minutes
+- **Book:** [https://deirdrekuvaas.com/appointment-request/](https://deirdrekuvaas.com/appointment-request/)
+- **Website:** [https://deirdrekuvaas.com/](https://deirdrekuvaas.com/)
 
 ## Specialties
 
-- Trauma and PTSD, including Complex PTSD (C-PTSD)
-- Anxiety and high-functioning anxiety
-- People-pleasing, perfectionism, and burnout in high-achieving adults
-- Substance use / addiction
+- **Trauma & PTSD:** PTSD; childhood trauma; complex trauma (C-PTSD); relationship or emotional trauma; sexual assault; accidents and sudden events (car accidents, medical emergencies); medical or birth trauma; unresolved trauma from the past
+- **Anxiety:** generalized anxiety and constant worry; overthinking and rumination; stress
+- **Patterns & self-worth:** people-pleasing; boundaries; perfectionism; inner critic and self-criticism; codependency; feeling stuck in the same patterns; relationship struggles (individual therapy, not couples)
+- **Substance use:** substance use counseling (Minnesota only, LADC)
+- **Who I work with:** adults (18+); professionals; high achievers; caregivers; healthcare workers; first responders; teachers and educators
 
 ## Treatment approaches
 
 - EMDR (Eye Movement Desensitization and Reprocessing)
 - CPT (Cognitive Processing Therapy)
-- Person-centered, trauma-informed care
+- IFS-informed
+- CBT (Cognitive Behavioral Therapy)
+- Mindfulness-based
+- Trauma-informed care
 
 ## Professional affiliations
 
@@ -32,10 +50,14 @@
 ## Key pages
 
 - [Trauma therapy](https://deirdrekuvaas.com/counseling-for-trauma/)
+- [PTSD treatment](https://deirdrekuvaas.com/ptsd/)
 - [EMDR](https://deirdrekuvaas.com/emdr/)
+- [Cognitive Processing Therapy (CPT)](https://deirdrekuvaas.com/cognitive-processing-therapy/)
 - [Anxiety counseling](https://deirdrekuvaas.com/counseling-for-anxiety/)
 - [Online therapy in North Dakota](https://deirdrekuvaas.com/north-dakota-telehealth-therapy/)
 - [Online therapy in Minnesota](https://deirdrekuvaas.com/minnesota-telehealth-therapy/)
 - [Online therapy in Ohio](https://deirdrekuvaas.com/ohio-telehealth-therapy/)
 - [Therapy in Fargo-Moorhead](https://deirdrekuvaas.com/fargo-moorhead-therapy/)
+- [Rates and insurance by state](https://deirdrekuvaas.com/rates-insurance/)
+- [FAQs](https://deirdrekuvaas.com/faqs/)
 - [Request a consultation](https://deirdrekuvaas.com/appointment-request/)

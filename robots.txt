@@ -3,4 +3,55 @@ Disallow: /admin/
 Disallow: /docs/
 Allow: /
 
+# AI search and assistant crawlers: explicitly allowed (same rules as above).
+User-agent: GPTBot
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
+User-agent: OAI-SearchBot
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
+User-agent: ChatGPT-User
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
+User-agent: Claude-SearchBot
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
+User-agent: Claude-User
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
+User-agent: Perplexity-User
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
+User-agent: Applebot-Extended
+Disallow: /admin/
+Disallow: /docs/
+Allow: /
+
 Sitemap: https://deirdrekuvaas.com/sitemap.xml
