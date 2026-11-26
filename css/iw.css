@@ -71,12 +71,12 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
 .iw-util a:hover,.iw-util a:focus-visible{color:#fff;text-decoration:underline}
 
 /* ---------- header ---------- */
-.iw-header{background:var(--iw-paper);border-bottom:1px solid rgba(38,59,45,.14);position:relative;z-index:50;color:var(--iw-text)}
+.iw-header{background:var(--iw-paper);border-bottom:1px solid rgba(38,59,45,.14);position:sticky;top:0;z-index:50;color:var(--iw-text);transition:box-shadow .2s ease}
 .iw-header__inner{max-width:1320px;margin:0 auto;padding:12px var(--iw-gutter);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto;align-items:center;gap:20px}
 .iw-nav--left{justify-self:end}
 .iw-nav--right{justify-self:start}
 .iw-logo{justify-self:center;display:block;line-height:0}
-.iw-logo img{width:112px;height:101px;object-fit:contain}
+.iw-logo img{width:80px;height:72px;object-fit:contain;transform-origin:50% 50%;transition:transform .2s ease}
 .iw-nav__list{display:flex;align-items:center;gap:22px}
 .iw-nav__list>li{position:relative}
 .iw-nav__list>li>a,.iw-dd__btn{
@@ -98,6 +98,23 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
 .iw-dd__menu a:hover,.iw-dd__menu a:focus-visible{background:#ECE7DA;color:var(--iw-green-dark)}
 .iw-header__actions{justify-self:end;display:flex;align-items:center;gap:14px}
 .iw-btn--header{white-space:nowrap}
+.iw-lbl-short{display:none}
+
+/* Sticky header. The header's box never changes height, so nothing below
+   it moves (CLS 0). On desktop it sticks with its top 32px off-screen; when
+   main.js adds .is-compact, the row slides 16px down to centre in the
+   visible 64px band and the logo scales 72px -> 48px (transforms only). */
+@media (min-width:1240px){
+  .iw-header{top:-32px}
+  .iw-header__inner{transition:transform .2s ease}
+  .iw-header.is-compact{box-shadow:0 6px 18px rgba(28,46,35,.10)}
+  .iw-header.is-compact .iw-header__inner{transform:translateY(16px)}
+  .iw-header.is-compact .iw-logo img{transform:scale(.667)}
+}
+[id]{scroll-margin-top:84px}
+@media (prefers-reduced-motion:reduce){
+  .iw-header,.iw-header__inner,.iw-logo img{transition:none}
+}
 
 /* mobile menu (details/summary: works without JS) */
 .iw-mobile{display:none;position:relative}
@@ -105,7 +122,7 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
 .iw-mobile>summary::-webkit-details-marker{display:none}
 .iw-mobile[open]>summary{background:#ECE7DA}
 .iw-mobile__panel{
-  position:absolute;right:0;top:58px;width:min(calc(100vw - 32px),340px);max-height:calc(100vh - 140px);overflow-y:auto;
+  position:absolute;right:0;top:calc(100% + 8px);width:min(calc(100vw - 32px),340px);max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);overflow-y:auto;overscroll-behavior:contain;
   background:var(--iw-paper);border:1px solid var(--iw-border);border-radius:18px;box-shadow:0 18px 40px rgba(28,46,35,.18);
   padding:14px 18px 18px;font-size:16px;z-index:70
 }
@@ -119,14 +136,17 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
   .iw-mobile{display:block}
   .iw-header__inner{grid-template-columns:auto 1fr auto}
   .iw-logo{justify-self:start;grid-column:1}
-  .iw-header__actions{grid-column:3}
-  .iw-logo img{width:84px;height:76px}
+  .iw-header__actions{grid-column:3;gap:10px}
+  .iw-header__inner{padding:6px var(--iw-gutter);gap:12px}
+  .iw-logo img{width:51px;height:46px}
+  .iw-mobile>summary{width:44px;height:44px}
+  .iw-header a.iw-btn--header{min-height:44px;padding:0 18px;font-size:14px}
+  .iw-lbl-long{display:none}
+  .iw-lbl-short{display:inline}
 }
 @media (max-width:560px){
   .iw-util__inner{justify-content:center;text-align:center}
   .iw-util__links{display:none}
-  .iw-header a.iw-btn--header{display:none}
-  .iw-logo img{width:72px;height:65px}
 }
 
 /* ---------- typography helpers ---------- */
@@ -377,8 +397,11 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
 .iw-footer__legal-links a{display:inline-flex;align-items:center;min-height:44px}
 @media (max-width:600px){
   .iw-footer{padding-top:56px}
+}
+@media (max-width:1239.98px){
   .iw-footer__links li a,.iw-footer__contact a{min-height:44px}
   .iw-footer__contact a{display:inline-flex;align-items:center}
+  .iw-trust a,.iw-hero__eyebrow a{display:inline-block;padding:13px 0}
 }
 
 /* ---------- inner pages: keep body styles, refresh type ---------- */
