@@ -14,6 +14,51 @@ window.addEventListener("click", function (e) {
   if (typeof gtag === "function") gtag("event", "consult_click");
 }, true);
 
+// Header dropdowns (desktop). Hover and :focus-within open them in CSS; the
+// buttons also toggle them for click, touch and keyboard users and keep
+// aria-expanded in sync. Escape closes and returns focus to the button.
+(function () {
+  // "is-closed" overrides the CSS hover/focus-within opening, so it is only
+  // set on the dropdown the user is actively dismissing (it still has
+  // focus or the pointer). It is cleared on mouseleave and focusout.
+  function setOpen(li, open, dismiss) {
+    var btn = li.querySelector(".iw-dd__btn");
+    li.classList.toggle("is-open", open);
+    li.classList.toggle("is-closed", !open && !!dismiss);
+    if (btn) btn.setAttribute("aria-expanded", String(open));
+  }
+  function closeAll(except) {
+    document.querySelectorAll(".iw-dd").forEach(function (li) {
+      if (li !== except) setOpen(li, false, li.contains(document.activeElement) || li.matches(":hover"));
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest ? e.target.closest(".iw-dd__btn") : null;
+    if (btn) {
+      var li = btn.parentElement;
+      var open = btn.getAttribute("aria-expanded") !== "true";
+      closeAll(li);
+      setOpen(li, open, !open);
+      return;
+    }
+    if (!(e.target.closest && e.target.closest(".iw-dd"))) closeAll(null);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape" && e.key !== "Esc") return;
+    var li = document.activeElement && document.activeElement.closest ? document.activeElement.closest(".iw-dd") : null;
+    closeAll(null);
+    if (li) { var b = li.querySelector(".iw-dd__btn"); if (b) b.focus(); }
+    var m = document.querySelector("details.iw-mobile[open]");
+    if (m) { m.open = false; var s = m.querySelector("summary"); if (s) s.focus(); }
+  });
+  document.querySelectorAll(".iw-dd").forEach(function (li) {
+    li.addEventListener("mouseleave", function () { li.classList.remove("is-closed"); });
+    li.addEventListener("focusout", function (e) {
+      if (!li.contains(e.relatedTarget)) setOpen(li, false, false);
+    });
+  });
+})();
+
 // GA4: count clicks on in-page links to /appointment-request/ (body copy,
 // not the header nav or footer). Sends only the page path and the link
 // text. Never prevents or stops the click. The SimplePractice widget
