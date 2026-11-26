@@ -41,6 +41,11 @@
 :where(.iw-header,.iw-footer) img{display:block;max-width:100%;height:auto}
 :focus-visible{outline:2px solid var(--iw-green);outline-offset:3px}
 
+/* Skip link: first element in <body>; hidden until focused */
+.iw-skip{box-sizing:border-box;position:absolute;left:16px;top:-100px;z-index:1000;padding:12px 18px;min-height:44px;display:inline-flex;align-items:center;background:var(--iw-green);color:#fff;font-family:var(--iw-sans);font-size:15px;font-weight:600;border-radius:999px;text-decoration:none;white-space:nowrap}
+.iw-skip:focus,.iw-skip:focus-visible{top:12px;color:#fff;outline:2px solid #fff;outline-offset:2px;box-shadow:0 0 0 4px var(--iw-green)}
+main#main-content:focus{outline:none}
+
 /* ---------- buttons ---------- */
 .iw-btn,a.iw-btn.spwidget-button{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -71,12 +76,12 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
 .iw-util a:hover,.iw-util a:focus-visible{color:#fff;text-decoration:underline}
 
 /* ---------- header ---------- */
-.iw-header{background:var(--iw-paper);border-bottom:1px solid rgba(38,59,45,.14);position:relative;z-index:50;color:var(--iw-text)}
+.iw-header{background:var(--iw-paper);border-bottom:1px solid rgba(38,59,45,.14);position:sticky;top:0;z-index:50;color:var(--iw-text);transition:box-shadow .2s ease}
 .iw-header__inner{max-width:1320px;margin:0 auto;padding:12px var(--iw-gutter);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto;align-items:center;gap:20px}
 .iw-nav--left{justify-self:end}
 .iw-nav--right{justify-self:start}
 .iw-logo{justify-self:center;display:block;line-height:0}
-.iw-logo img{width:112px;height:101px;object-fit:contain}
+.iw-logo img{width:80px;height:72px;object-fit:contain;transform-origin:50% 50%;transition:transform .2s ease}
 .iw-nav__list{display:flex;align-items:center;gap:22px}
 .iw-nav__list>li{position:relative}
 .iw-nav__list>li>a,.iw-dd__btn{
@@ -84,7 +89,7 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
   font-family:var(--iw-sans);font-size:15px;font-weight:400;line-height:1.2;color:#22302A;
   text-decoration:none;background:none;border:0;border-bottom:1px solid transparent;border-radius:0;cursor:pointer;white-space:nowrap
 }
-.iw-nav__list>li>a:hover,.iw-nav__list>li>a:focus-visible,.iw-dd__btn:hover,.iw-dd__btn:focus-visible,.iw-dd.is-open>.iw-dd__btn,.iw-nav__list>li>a[aria-current="page"]{border-bottom-color:var(--iw-green);color:var(--iw-green-dark)}
+.iw-nav__list>li>a:hover,.iw-nav__list>li>a:focus-visible,.iw-dd__btn:hover,.iw-dd__btn:focus-visible,.iw-dd.is-open>.iw-dd__btn{border-bottom-color:var(--iw-green);color:var(--iw-green-dark)}
 .iw-dd__btn svg{transition:transform .2s ease}
 .iw-dd.is-open>.iw-dd__btn svg{transform:rotate(180deg)}
 .iw-dd__menu{
@@ -95,9 +100,26 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
 .iw-dd:hover>.iw-dd__menu,.iw-dd:focus-within>.iw-dd__menu,.iw-dd.is-open>.iw-dd__menu{opacity:1;visibility:visible;transform:translateY(0)}
 .iw-dd.is-closed>.iw-dd__menu{opacity:0;visibility:hidden}
 .iw-dd__menu a{display:flex;align-items:center;min-height:44px;padding:10px 14px;border-radius:10px;text-decoration:none;color:#22302A;font-size:15px;line-height:1.3}
-.iw-dd__menu a:hover,.iw-dd__menu a:focus-visible,.iw-dd__menu a[aria-current="page"]{background:#ECE7DA;color:var(--iw-green-dark)}
+.iw-dd__menu a:hover,.iw-dd__menu a:focus-visible{background:#ECE7DA;color:var(--iw-green-dark)}
 .iw-header__actions{justify-self:end;display:flex;align-items:center;gap:14px}
 .iw-btn--header{white-space:nowrap}
+.iw-lbl-short{display:none}
+
+/* Sticky header. The header's box never changes height, so nothing below
+   it moves (CLS 0). On desktop it sticks with its top 32px off-screen; when
+   main.js adds .is-compact, the row slides 16px down to centre in the
+   visible 64px band and the logo scales 72px -> 48px (transforms only). */
+@media (min-width:1240px){
+  .iw-header{top:-32px}
+  .iw-header__inner{transition:transform .2s ease}
+  .iw-header.is-compact{box-shadow:0 6px 18px rgba(28,46,35,.10)}
+  .iw-header.is-compact .iw-header__inner{transform:translateY(16px)}
+  .iw-header.is-compact .iw-logo img{transform:scale(.667)}
+}
+[id]{scroll-margin-top:84px}
+@media (prefers-reduced-motion:reduce){
+  .iw-header,.iw-header__inner,.iw-logo img{transition:none}
+}
 
 /* mobile menu (details/summary: works without JS) */
 .iw-mobile{display:none;position:relative}
@@ -105,7 +127,7 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
 .iw-mobile>summary::-webkit-details-marker{display:none}
 .iw-mobile[open]>summary{background:#ECE7DA}
 .iw-mobile__panel{
-  position:absolute;right:0;top:58px;width:min(calc(100vw - 32px),340px);max-height:calc(100vh - 140px);overflow-y:auto;
+  position:absolute;right:0;top:calc(100% + 8px);width:min(calc(100vw - 32px),340px);max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);overflow-y:auto;overscroll-behavior:contain;
   background:var(--iw-paper);border:1px solid var(--iw-border);border-radius:18px;box-shadow:0 18px 40px rgba(28,46,35,.18);
   padding:14px 18px 18px;font-size:16px;z-index:70
 }
@@ -119,19 +141,22 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
   .iw-mobile{display:block}
   .iw-header__inner{grid-template-columns:auto 1fr auto}
   .iw-logo{justify-self:start;grid-column:1}
-  .iw-header__actions{grid-column:3}
-  .iw-logo img{width:84px;height:76px}
+  .iw-header__actions{grid-column:3;gap:10px}
+  .iw-header__inner{padding:6px var(--iw-gutter);gap:12px}
+  .iw-logo img{width:51px;height:46px}
+  .iw-mobile>summary{width:44px;height:44px}
+  .iw-header a.iw-btn--header{min-height:44px;padding:0 18px;font-size:14px}
+  .iw-lbl-long{display:none}
+  .iw-lbl-short{display:inline}
 }
 @media (max-width:560px){
   .iw-util__inner{justify-content:center;text-align:center}
   .iw-util__links{display:none}
-  .iw-header a.iw-btn--header{display:none}
-  .iw-logo img{width:72px;height:65px}
 }
 
 /* ---------- typography helpers ---------- */
 .iw-eyebrow{margin:0 0 16px;font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--iw-eyebrow)}
-:where(.iw-home) :where(h1,h2,h3),.iw-serif{font-family:var(--iw-serif);color:var(--iw-ink);font-weight:500;margin:0;line-height:1.2}
+:where(.iw-home) :where(h1,h2,h3){font-family:var(--iw-serif);color:var(--iw-ink);font-weight:500;margin:0;line-height:1.2}
 :where(.iw-home) h2{font-size:clamp(34px,4.2vw,52px);line-height:1.1}
 :where(.iw-home) p{margin:0;overflow-wrap:break-word}
 
@@ -377,8 +402,11 @@ a.iw-btn.spwidget-button:active{color:#fff !important}
 .iw-footer__legal-links a{display:inline-flex;align-items:center;min-height:44px}
 @media (max-width:600px){
   .iw-footer{padding-top:56px}
+}
+@media (max-width:1239.98px){
   .iw-footer__links li a,.iw-footer__contact a{min-height:44px}
   .iw-footer__contact a{display:inline-flex;align-items:center}
+  .iw-trust a,.iw-hero__eyebrow a{display:inline-block;padding:13px 0}
 }
 
 /* ---------- inner pages: keep body styles, refresh type ---------- */

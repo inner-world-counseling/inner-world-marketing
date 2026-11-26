@@ -59,6 +59,32 @@ window.addEventListener("click", function (e) {
   });
 })();
 
+// Sticky header: add .is-compact once the header is stuck (desktop styles
+// only use it at >=1240px; transforms only, so no layout shift). Also keep
+// the open mobile menu inside the viewport so it scrolls on its own.
+(function () {
+  var header = document.querySelector(".iw-header");
+  if (!header) return;
+  var util = document.querySelector(".iw-util");
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var limit = (util ? util.offsetHeight : 0) + 32;
+    header.classList.toggle("is-compact", window.scrollY > limit);
+    var panel = document.querySelector("details.iw-mobile[open] .iw-mobile__panel");
+    if (panel) {
+      var top = panel.getBoundingClientRect().top;
+      panel.style.maxHeight = Math.max(160, window.innerHeight - top - 12) + "px";
+    }
+  }
+  function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  var menu = document.querySelector("details.iw-mobile");
+  if (menu) menu.addEventListener("toggle", update);
+  update();
+})();
+
 // GA4: count clicks on in-page links to /appointment-request/ (body copy,
 // not the header nav or footer). Sends only the page path and the link
 // text. Never prevents or stops the click. The SimplePractice widget
