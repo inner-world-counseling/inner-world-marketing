@@ -14,6 +14,25 @@ window.addEventListener("click", function (e) {
   if (typeof gtag === "function") gtag("event", "consult_click");
 }, true);
 
+// GA4: count clicks on in-page links to /appointment-request/ (body copy,
+// not the header nav or footer). Sends only the page path and the link
+// text. Never prevents or stops the click. The SimplePractice widget
+// buttons are a.spwidget-button and are counted by consult_click above.
+window.addEventListener("click", function (e) {
+  var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+  if (!a || a.classList.contains("spwidget-button")) return;
+  if (a.closest("header, footer, .top-bar, .site-header, .site-footer, .iw-util")) return;
+  var u;
+  try { u = new URL(a.getAttribute("href"), location.href); } catch (err) { return; }
+  if (u.origin !== location.origin || u.pathname !== "/appointment-request/") return;
+  if (typeof gtag === "function") {
+    gtag("event", "booking_page_click", {
+      page_path: location.pathname,
+      link_text: (a.textContent || "").replace(/\s+/g, " ").trim().slice(0, 100)
+    });
+  }
+}, true);
+
 (function () {
   if (!WAITLIST_ACTIVE) return;
 
